@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: projetossp_development
+  username: <%= ENV['PROJETOSSP_DATABASE_USERNAME_DEV'] %>
+  password: <%= ENV['PROJETOSSP_DATABASE_PASSWORD_DEV'] %>
+
+test:
+  <<: *default
+  database: projetossp_test
+  username: <%= ENV['PROJETOSSP_DATABASE_USERNAME_TEST'] %>
+  password: <%= ENV['PROJETOSSP_DATABASE_PASSWORD_TEST'] %>
+
+production:
+  <<: *default
+  database: projetossp_production
+  username: <%= ENV['PROJETOSSP_DATABASE_USERNAME_PRO'] %>
+  password: <%= ENV['PROJETOSSP_DATABASE_PASSWORD_PRO'] %>

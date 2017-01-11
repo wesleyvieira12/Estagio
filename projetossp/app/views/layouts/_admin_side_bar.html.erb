@@ -5,17 +5,17 @@
   Inicio
   <% end %>
 
-  <%= link_to occurrences_path, class: "#{is_current_page?(occurrences_path)} item" do %>
+  <%= link_to root_path, class: "#{is_current_page?(root_path)} item" do %>
   <i class="book icon"></i>
   Registro de Ocorrências
   <% end %>
 
-  <%= link_to partakers_path, class: "#{is_current_page?(partakers_path)} item" do %>
+  <%= link_to root_path, class: "#{is_current_page?(root_path)} item" do %>
   <i class="users icon"></i>
   Registro de Compartes
   <% end %>
   
-  <%= link_to addresses_path, class: "#{is_current_page?(addresses_path)} item" do %>
+  <%= link_to root_path, class: "#{is_current_page?('')} item" do %>
   <i class="marker icon"></i>
   Locais de incidência de crimes
   <% end %>

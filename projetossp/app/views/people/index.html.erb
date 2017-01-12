@@ -13,14 +13,13 @@
   </div>
   
   <h1 class"ui header">Lista de pessoas</h1>
-  <table class='ui  orange table '>
+  <table class='ui orange table '>
     <thead>
       <tr>
         <th>Name</th>
         <th>Cpf</th>
         <th>Phone</th>
         <th>Cell phone</th>
-        <th>Photo</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -43,8 +42,8 @@
           <td><%= person.phone %></td>
           <td><%= person.cell_phone %></td>
           <td><%= link_to 'Show', person, class: 'ui tiny blue basic button' %></td>
-          <td><%= link_to 'Edit', edit_person_path(person), class: 'ui tiny blue basic button' %></td>
-          <td><%= link_to 'Destroy', person, method: :delete, class: 'ui tiny basic red button', data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Editar', edit_person_path(person), class: 'ui tiny blue basic button' %></td>
+          <td><%= link_to 'Excluir', person, method: :delete, class: 'ui tiny basic red button', data: { confirm: 'Você tem certeza?' } %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,0 +1,16 @@
+# encoding: UTF-8
+# pt-BR translations for Devise
+pt-BR:
+    activerecord:
+        models:
+            person: Pessoa
+        attributes:
+            person:
+                name: Nome
+                rg: Rg
+                cpf: CPF
+                phone: Telefone
+                cell_phone: Celular
+                gender: Gênero
+                photo: Foto
+                

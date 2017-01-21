@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :group_permissions
+  resources :user_permissions
+  resources :segments
+  resources :user_groups
+  resources :permissions
   get 'auditor/index'
   get 'auditor/show/:id', to: 'auditor#show', as: :show_auditor
   

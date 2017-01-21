@@ -1,15 +1,16 @@
 <div class='show'>
   <div>
-      <div class="ui search">
+      
       <div class="ui icon input">
         <%= link_to  new_person_path, class: 'ui teal button' do %>
           <i class='add icon'></i>Pessoa
         <% end %>
-        <input class="prompt" placeholder="Procurar pessoa" type="text">
-        <i class="search icon"></i>
-      </div>
-      <div class="results"></div>
-      </div>
+        <div class="ui left icon action input">
+          <i class="search icon"></i>
+          <input placeholder="Pesquisar" type="text">
+          <div class="ui blue submit button">Procurar</div>
+        </div>
+        
   </div>
   
   <h1 class"ui header">Lista de pessoas</h1>

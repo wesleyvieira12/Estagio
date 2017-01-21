@@ -3,5 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  #Audited.current_user_method = :authenticated_user
+  include Pundit
+  #after_action :verify_authorized
+
 end

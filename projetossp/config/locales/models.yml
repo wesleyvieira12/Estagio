@@ -3,6 +3,7 @@
 pt-BR:
     activerecord:
         models:
+            permission: Permissão
             person: Pessoa
         attributes:
             person:
@@ -13,4 +14,6 @@ pt-BR:
                 cell_phone: Celular
                 gender: Gênero
                 photo: Foto
+        
+        
                 

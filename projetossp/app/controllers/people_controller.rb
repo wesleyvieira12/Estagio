@@ -1,9 +1,12 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-
+  #skip_after_action :verify_authorized, only: [:index]
+  
+  #after_action :verify_policy_scoped, only: :index
   # GET /people
   # GET /people.json
   def index
+    authorize Person
     @people = Person.all
   end
 

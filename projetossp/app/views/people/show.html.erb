@@ -4,7 +4,7 @@
     <h2 class="ui header">
       <%= @person.name %>
     </h2>
-    <strong>Gender:</strong>
+    <strong>Gênero</strong>
     <%= @person.gender %>
   </p>
   
@@ -19,16 +19,16 @@
   </p>
   
   <p>
-    <strong>Phone:</strong>
+    <strong>Telefone:</strong>
     <%= @person.phone %>
   </p>
   
   <p>
-    <strong>Cell phone:</strong>
+    <strong>Celular:</strong>
     <%= @person.cell_phone %>
   </p>
   
-  <%= link_to 'Edit', edit_person_path(@person), class: 'ui button' %> 
-  <%= link_to 'Back', people_path, class: 'ui button' %>
+  <%= link_to 'Editar', edit_person_path(@person), class: 'ui button' %> 
+  <%= link_to 'Voltar', people_path, class: 'ui button' %>
   
 </div>

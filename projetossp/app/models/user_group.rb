@@ -10,5 +10,5 @@ class UserGroup < ActiveRecord::Base
     # =>    enum function:  { agente: 0, perito: 1, delegado: 2 } 
     # Não mude a chave de elementos já existem!
     
-    enum function: { agente: 0, perito: 1, delegado: 2 }
+    enum function: { agente: 0, perito: 1, delegado: 2, administrador: 3 }
 end

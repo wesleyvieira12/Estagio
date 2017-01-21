@@ -1,4 +1,4 @@
-_# encoding: UTF-8
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@ _# encoding: UTF-8
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121193126) do
+ActiveRecord::Schema.define(version: 20170121205923) do
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -107,9 +107,11 @@ ActiveRecord::Schema.define(version: 20170121193126) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "user_group_id",          default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["user_group_id"], name: "index_users_on_user_group_id"
 
 end

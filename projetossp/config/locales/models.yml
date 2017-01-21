@@ -3,9 +3,21 @@
 pt-BR:
     activerecord:
         models:
+            group_permission: Permissão de grupo
             permission: Permissão
             person: Pessoa
+            segment: Módulo
+            user: Usuário
+            user_group: Grupo de usuário
+            user_permission: Permissão de grupo
         attributes:
+            group_permission:
+                user_group_id: Grupo de usuário
+                segment_id: Módulo
+                permission_id: Permissão
+            permission:
+                name: Nome
+                description: Descrição
             person:
                 name: Nome
                 rg: Rg
@@ -14,6 +26,17 @@ pt-BR:
                 cell_phone: Celular
                 gender: Gênero
                 photo: Foto
-        
-        
+            segment:
+                name: Nome
+                description: Descrição
+            user_group:
+                description: Descrição
+                function: Função
+                level: Nível
+            user_permission:
+                user_id: Usuário
+                segment_id: Módulo
+                permission_id: Permissão
+            user:
+                email: Email
                 

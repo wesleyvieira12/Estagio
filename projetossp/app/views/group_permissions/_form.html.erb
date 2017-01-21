@@ -1,29 +1,32 @@
-<%= form_for(@group_permission) do |f| %>
-  <% if @group_permission.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@group_permission.errors.count, "error") %> prohibited this group_permission from being saved:</h2>
-
-      <ul>
-      <% @group_permission.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="ui form">
+  <h4 class="ui dividing header">Informações</h4>
+  <%= form_for(@group_permission) do |f| %>
+    <% if @group_permission.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@group_permission.errors.count, "error") %> prohibited this group_permission from being saved:</h2>
+  
+        <ul>
+        <% @group_permission.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= f.label :user_group_id %><br>
+      <%= f.text_field :user_group_id %>
+    </div>
+    <div class="field">
+      <%= f.label :segment_id %><br>
+      <%= f.text_field :segment_id %>
+    </div>
+    <div class="field">
+      <%= f.label :permission_id %><br>
+      <%= f.text_field :permission_id %>
+    </div>
+    <div class="actions">
+      <%= f.submit class:'ui teal button' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :user_group_id %><br>
-    <%= f.text_field :user_group_id %>
-  </div>
-  <div class="field">
-    <%= f.label :segment_id %><br>
-    <%= f.text_field :segment_id %>
-  </div>
-  <div class="field">
-    <%= f.label :permission_id %><br>
-    <%= f.text_field :permission_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

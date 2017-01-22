@@ -3,6 +3,7 @@
 pt-BR:
     activerecord:
         models:
+            district: Orgão
             group_permission: Permissão de grupo
             permission: Permissão
             person: Pessoa
@@ -11,6 +12,17 @@ pt-BR:
             user_group: Grupo de usuário
             user_permission: Permissão de grupo
         attributes:
+            district:
+                name: Nome
+                public_place: Logradouro
+                city: Cidade
+                state: Estado
+                cep: Cep
+                phone: Telefone
+                email: Email
+                neighborhood: Bairro
+                second_phone: Segundo Telefone
+                district_id: Distrito superior
             group_permission:
                 user_group_id: Grupo de usuário
                 segment_id: Módulo

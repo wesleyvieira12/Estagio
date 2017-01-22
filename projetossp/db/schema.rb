@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121205923) do
+ActiveRecord::Schema.define(version: 20170122200336) do
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -35,6 +35,23 @@ ActiveRecord::Schema.define(version: 20170121205923) do
   add_index "audits", ["created_at"], name: "index_audits_on_created_at"
   add_index "audits", ["request_uuid"], name: "index_audits_on_request_uuid"
   add_index "audits", ["user_id", "user_type"], name: "user_index"
+
+  create_table "districts", force: :cascade do |t|
+    t.integer  "district_id"
+    t.string   "name"
+    t.string   "public_place"
+    t.string   "city"
+    t.string   "state"
+    t.string   "cep"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "neighborhood"
+    t.string   "second_phone"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "districts", ["district_id"], name: "index_districts_on_district_id"
 
   create_table "group_permissions", force: :cascade do |t|
     t.integer  "user_group_id"

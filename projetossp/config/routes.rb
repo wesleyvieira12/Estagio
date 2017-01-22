@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :districts
   resources :group_permissions
   resources :user_permissions
   resources :segments

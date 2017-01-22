@@ -7,6 +7,10 @@ class GroupPermission < ActiveRecord::Base
   # =>  Segment.new = person
   # =>  Permission = index
   
+  # Injeção de funções de auditória
+  audited
+
+  # Relacionamentos
   belongs_to :user_group
   belongs_to :segment
   belongs_to :permission

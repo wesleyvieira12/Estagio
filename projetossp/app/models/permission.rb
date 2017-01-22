@@ -5,4 +5,10 @@ class Permission < ActiveRecord::Base
     # Exemplo:
     # =>    PeopleController = Controlador com método index
     # =>    Permission.new name: 'index', description: 'função index do controlador'
+    
+    # Injeção de funções de auditória
+    audited
+    
+    # Relacionamentos
+    has_many :group_permissions
 end

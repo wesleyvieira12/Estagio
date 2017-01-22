@@ -15,9 +15,9 @@
         <td><%= group_permission.user_group.function %></td>
         <td><%= group_permission.segment.name %></td>
         <td><%= group_permission.permission.name %></td>
-        <td><%= link_to 'Show', group_permission, class: 'ui tiny blue basic button' %></td>
-        <td><%= link_to 'Edit', edit_group_permission_path(group_permission), class: 'ui tiny blue basic button' %></td>
-        <td><%= link_to 'Destroy', group_permission, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button' %></td>
+        <td><%= link_to 'Detalhes', group_permission, class: 'ui tiny blue basic button' %></td>
+        <td><%= link_to 'Editar', edit_group_permission_path(group_permission), class: 'ui tiny blue basic button' %></td>
+        <td><%= link_to 'Excluir', group_permission, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button' %></td>
       </tr>
     <% end %>
   </tbody>

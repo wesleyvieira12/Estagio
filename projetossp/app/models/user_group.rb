@@ -11,4 +11,11 @@ class UserGroup < ActiveRecord::Base
     # Não mude a chave de elementos já existem!
     
     enum function: { agente: 0, perito: 1, delegado: 2, administrador: 3 }
+    
+    # Injeção de funções de auditória
+    audited
+    
+    # Relacionamentos
+    has_many :group_permissions
+    has_many :users
 end

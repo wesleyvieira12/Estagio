@@ -1,7 +1,7 @@
 class UserPermission < ActiveRecord::Base
   
   # Classe responsável por fazer a permissão personalizavél
-  # Examplo:
+  # Exemplo:
   # =>  User: 'josafa@email.com'
   # =>  Segment: 'person'
   # =>  Permission: 'index'
@@ -9,4 +9,7 @@ class UserPermission < ActiveRecord::Base
   belongs_to :user
   belongs_to :segment
   belongs_to :permission
+  
+  # Injeção de funções de auditória
+  audited
 end

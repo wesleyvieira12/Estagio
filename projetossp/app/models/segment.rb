@@ -6,4 +6,10 @@ class Segment < ActiveRecord::Base
     # =>    Modelo Person
     # =>    Segment.new name: 'person', description: 'Módulo de pessoa'
     
+    # Injeção de funções de auditória
+    audited
+    
+    # Relacionamentos
+    has_many :user_permissions
+    has_many :group_permissions
 end

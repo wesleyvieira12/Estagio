@@ -112,28 +112,28 @@ GroupPermission.create! user_group: user_group_administrador_level_0, segment: s
 # Agente 
 # Observação: Apenas agente level 0
 # Módulo Person
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_index
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_show
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_new
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_person, permission: permission_index
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_person, permission: permission_show
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_person, permission: permission_new
 
 # Permissão de grupo
 # Delegado
 # Observação: Apenas delegado level 0
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_create
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_destroy
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_index
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_show
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_new
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_update
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_create
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_destroy
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_index
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_show
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_new
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_update
 
 # Permissão de grupo
 # Périto
 # Observação: Apenas périto level 0
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_create
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_index
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_show
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_new
-GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_person, permission: permission_update
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_person, permission: permission_create
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_person, permission: permission_index
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_person, permission: permission_show
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_person, permission: permission_new
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_person, permission: permission_update
 
 # Adicionando usuário a um grupo
 puts 'Adicionando usuário a um grupo'

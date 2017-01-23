@@ -1,16 +1,23 @@
 <div class='show'>
   <div>
-      
       <div class="ui icon input">
         <%= link_to  new_person_path, class: 'ui teal button' do %>
           <i class='add icon'></i>Pessoa
         <% end %>
-        <div class="ui left icon action input">
-          <i class="search icon"></i>
-          <input placeholder="Pesquisar" type="text">
-          <div class="ui blue submit button">Procurar</div>
-        </div>
-        
+        <!--<div class="ui left icon action input">-->
+        <!--  <i class="search icon"></i>-->
+        <!--  <input placeholder="Pesquisar" type="text">-->
+        <!--  <div class="ui blue submit button">Procurar</div>-->
+        <!--</div>-->
+        <%= search_form_for @q do |f| %>
+          <div class="ui left icon action input">
+            <i class="search icon"></i>
+            <%= f.search_field :name_cont, placeholder: 'Procurar' do %>
+              
+            <% end %>
+            <%= f.submit 'Procurar', class:'ui blue submit button' %>
+          </div>
+        <% end %>
   </div>
   
   <h1 class"ui header">Lista de pessoas</h1>

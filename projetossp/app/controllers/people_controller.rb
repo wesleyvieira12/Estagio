@@ -7,7 +7,8 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
     authorize Person
-    @people = Person.all
+    @q = Person.ransack(params[:q])
+    @people = @q.result
   end
 
   # GET /people/1

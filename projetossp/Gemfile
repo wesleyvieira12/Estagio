@@ -17,6 +17,7 @@ gem 'sqlite3'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 gem 'audited', '~> 4.3'
+gem 'ransack'
 # group :production do 
 #   gem 'pg', '~> 0.15'
 # end

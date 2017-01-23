@@ -14,8 +14,8 @@ Modo produção
 #export PROJETOSSP_DATABASE_PASSWORD_PRO='senha do usuário'
 
 # Gerar base de dados
-rake db:create
+    rake db:create
 
 # Inicializar o servidor
-export PORT=80 # Verificar antes se há algum serviço operando nesta porta
+#export PORT=80 # Verificar antes se há algum serviço operando nesta porta
 rails s -b 0.0.0.0 -p $PORT -e production 

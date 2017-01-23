@@ -51,4 +51,7 @@ pt-BR:
                 permission_id: Permissão
             user:
                 email: Email
+                district_id: Distrito
+                registration: Mátricula
+                date_registration: Data mátricula
                 

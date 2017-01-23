@@ -7,3 +7,16 @@ dependências:
 procedimento após instalação
     rake db:migrate
     rake db:seed
+    
+Projeto da SSP com Wesley, Rodrigo e Josafá.
+
+Modo produção
+export PROJETOSSP_DATABASE_USERNAME_PRO='usuário do banco'
+export PROJETOSSP_DATABASE_PASSWORD_PRO='senha do usuário'
+
+# Gerar base de dados
+rake db:create
+
+# Inicializar o servidor
+export PORT=80 # Verificar antes se há algum serviço operando nesta porta
+rails s -b 0.0.0.0 -p $PORT -e production 

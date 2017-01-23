@@ -19,7 +19,8 @@ puts 'email: josafa@email.com
     
 puts 'Criando módulos'  
 # Nome da classe ou modelo. 
-# Ordem alfabetica 
+# Ordem alfabetica
+segment_district = Segment.create! name: 'district', description: 'Segmento ou nome dos módulos da aplicação: Distrito'
 segment_group_permission = Segment.create! name: 'group_permission', description: 'Segmento ou nome dos módulos da aplicação: Permissão de Grupo'
 segment_person = Segment.create! name: 'person', description: 'Segmento ou nome dos módulos da aplicação: Pessoa'
 segment_permission = Segment.create! name: 'permission', description: 'Segmento ou nome dos módulos da aplicação: Permissão'
@@ -58,6 +59,13 @@ user_group_perito_level_2 = UserGroup.create! function: 1, level: 2
 # Permissão de grupo
 puts 'Adicionando permissões de grupo'
 # Grupo Administrador
+# Módulo District
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_district, permission: permission_create
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_district, permission: permission_destroy
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_district, permission: permission_index
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_district, permission: permission_show
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_district, permission: permission_new
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_district, permission: permission_update
 # Módulo GroupPermission
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_group_permission, permission: permission_create
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_group_permission, permission: permission_destroy

@@ -10,8 +10,8 @@ procedimento após instalação
 
 
 Modo produção
-export PROJETOSSP_DATABASE_USERNAME_PRO='usuário do banco'
-export PROJETOSSP_DATABASE_PASSWORD_PRO='senha do usuário'
+#export PROJETOSSP_DATABASE_USERNAME_PRO='usuário do banco'
+#export PROJETOSSP_DATABASE_PASSWORD_PRO='senha do usuário'
 
 # Gerar base de dados
 rake db:create

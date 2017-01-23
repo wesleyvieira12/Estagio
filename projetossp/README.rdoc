@@ -7,8 +7,7 @@ dependências:
 procedimento após instalação
     rake db:migrate
     rake db:seed
-    
-Projeto da SSP com Wesley, Rodrigo e Josafá.
+
 
 Modo produção
 export PROJETOSSP_DATABASE_USERNAME_PRO='usuário do banco'

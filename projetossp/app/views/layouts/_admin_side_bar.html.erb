@@ -5,18 +5,9 @@
   Inicio
   <% end %>
 
-  <%= link_to root_path, class: "#{is_current_page?(root_path)} item" do %>
-  <i class="book icon"></i>
-  Registro de Ocorrências
+  <%= link_to users_path, class: "#{is_current_page?(users_path)} item" do %>
+  <i class="users icon"></i>
+  Usuarios
   <% end %>
 
-  <%= link_to root_path, class: "#{is_current_page?(root_path)} item" do %>
-  <i class="users icon"></i>
-  Registro de Compartes
-  <% end %>
-  
-  <%= link_to root_path, class: "#{is_current_page?('')} item" do %>
-  <i class="marker icon"></i>
-  Locais de incidência de crimes
-  <% end %>
 </div>

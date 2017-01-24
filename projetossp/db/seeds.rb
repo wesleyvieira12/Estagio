@@ -4,10 +4,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 puts "Criando usuários"
-user_administrador = User.create! email: 'administrador@email.com', password: '12345678', password_confirmation: '12345678'
-user_delegado = User.create! email: 'delegado@email.com', password: '12345678', password_confirmation: '12345678'
-user_perito = User.create! email: 'perito@email.com', password: '12345678', password_confirmation: '12345678'
-user_agente = User.create! email: 'agente@email.com', password: '12345678', password_confirmation: '12345678'
+user_administrador = User.create! email: 'administrador@email.com', password: '12345678', password_confirmation: '12345678', approved: true
+user_delegado = User.create! email: 'delegado@email.com', password: '12345678', password_confirmation: '12345678', approved: false
+user_perito = User.create! email: 'perito@email.com', password: '12345678', password_confirmation: '12345678', approved: false
+user_agente = User.create! email: 'agente@email.com', password: '12345678', password_confirmation: '12345678', approved: false
 puts 'email: josafa@email.com 
     senha: 12345678 
     email: delegado@email.com 

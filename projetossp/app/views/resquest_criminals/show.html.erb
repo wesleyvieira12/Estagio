@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>District resquest:</strong>
+  <%= @resquest_criminal.district_resquest %>
+</p>
+
+<p>
+  <strong>District send:</strong>
+  <%= @resquest_criminal.district_send %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @resquest_criminal.user %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @resquest_criminal.type %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @resquest_criminal.person %>
+</p>
+
+<%= link_to 'Edit', edit_resquest_criminal_path(@resquest_criminal) %> |
+<%= link_to 'Back', resquest_criminals_path %>

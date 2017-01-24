@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :question_resquest_criminals
+  resources :questions
+  resources :resquest_criminals
   resources :districts
   resources :group_permissions
   resources :user_permissions

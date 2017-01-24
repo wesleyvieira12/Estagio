@@ -10,6 +10,7 @@ pt-BR:
       send_instructions: "Você receberá um e-mail para confirmar sua conta em alguns minutos."
       send_paranoid_instructions: "Caso seu endereço de e-mail já exista em nosso banco de dados, você receberá um email com instruções sobre como ativar sua conta."
     failure:
+      not_approved: 'Your account has not been approved by your administrator yet.'
       already_authenticated: "Você já está logado."
       inactive: "Sua conta ainda não foi ativada."
       invalid: "Email ou senha inválidos."
@@ -38,6 +39,8 @@ pt-BR:
       updated: "Sua senha foi alterada com sucesso. Você agora está conectado."
       updated_not_active: "Sua senha foi alterada com sucesso."
     registrations:
+      user:
+        signed_up_but_not_approved: 'You have signed up successfully but your account has not been approved by your administrator yet'
       destroyed: "Até logo! Sua conta foi cancelada com sucesso. Nós esperamos vê-lo novamente em breve."
       signed_up: "Bem-vindo! Você se registrou com sucesso."
       signed_up_but_inactive: "Você se registrou com sucesso. Para efetuar login, você deverá ativar sua conta."

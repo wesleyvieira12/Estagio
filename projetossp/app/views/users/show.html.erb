@@ -1,0 +1,43 @@
+
+	<p id="notice"><%= notice %></p>
+
+	<div class="ui items">
+
+	<div class="item">
+    
+    <div class="ui small image">
+      <img src="/Imagens/avatar.png">
+    </div>
+
+    <div class="content">
+      
+      <div class="header">Name</div>
+      
+      <div class="meta">
+        <span class="price">
+        
+	    		<strong>E-mail:</strong>
+	    		<%= @user.email %>
+	  		
+	  	</span>
+	  	<p>
+        <span class="stay">
+        	
+			    <strong>Approved:</strong>
+			    <%= @user.approved %>
+	  		
+        </span>
+        </p>
+      </div>
+
+      <div class="description">
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+
+
+  </div>
+
+	<%= link_to 'Back', users_path,  class: 'ui tiny blue basic button ' %>

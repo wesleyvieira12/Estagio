@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+
+<table class="ui orange table">
+  <thead>
+    <tr>
+      <th>E-mail</th>
+      <th>Approved</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <div>
+          <td><%= user.email %></td>
+          <td><%= user.approved %></td>
+        </div>
+        <td><%= link_to 'Show', user, class: 'ui tiny blue basic button ' %></td>
+        <td><%= link_to 'Change Aprroved', change_approved_path(user), class: 'ui tiny blue basic button ' %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button ' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

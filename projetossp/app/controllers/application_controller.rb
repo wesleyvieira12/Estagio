@@ -4,9 +4,22 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   # Devise
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   
+
+ 
   include Pundit
   #after_action :verify_authorized
 
+  protected
+
+  def configure_permitted_parameters
+  	devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  	devise_parameter_sanitizer.permit(:sign_up, keys: [:registration])
+  	devise_parameter_sanitizer.permit(:sign_up, keys: [:district_id])
+  	devise_parameter_sanitizer.permit(:sign_up, keys: [:registration_date])
+  	devise_parameter_sanitizer.permit(:sign_up, keys: [:user_group_id])
+  end
+  
 end

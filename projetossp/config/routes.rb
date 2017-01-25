@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reports
   resources :question_resquest_criminals
   resources :questions
   resources :resquest_criminals

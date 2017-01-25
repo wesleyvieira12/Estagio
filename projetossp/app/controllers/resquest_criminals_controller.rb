@@ -26,6 +26,9 @@ class ResquestCriminalsController < ApplicationController
   def create
     @resquest_criminal = ResquestCriminal.new(resquest_criminal_params)
 
+    # Nessa linha a requisição atual é setada com o ID do usuário atual
+    @resquest_criminal.user_id = current_user.id
+
     respond_to do |format|
       if @resquest_criminal.save
         format.html { redirect_to @resquest_criminal, notice: 'Resquest criminal was successfully created.' }

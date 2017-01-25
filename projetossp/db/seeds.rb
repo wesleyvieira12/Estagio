@@ -24,6 +24,7 @@ segment_district = Segment.create! name: 'district', description: 'Segmento ou n
 segment_group_permission = Segment.create! name: 'group_permission', description: 'Segmento ou nome dos módulos da aplicação: Permissão de Grupo'
 segment_person = Segment.create! name: 'person', description: 'Segmento ou nome dos módulos da aplicação: Pessoa'
 segment_permission = Segment.create! name: 'permission', description: 'Segmento ou nome dos módulos da aplicação: Permissão'
+segment_report = Segment.create! name: 'report', description: 'Segmento ou nome dos módulos da aplicação: Laudo'
 segment_segment = Segment.create! name: 'segment', description: 'Segmento ou nome dos módulos da aplicação: Módulo'
 segment_user = Segment.create! name: 'user', description: 'Segmento ou nome dos módulos da aplicação: Usuário'
 segment_user_group = Segment.create! name: 'user_group', description: 'Segmento ou nome dos módulos da aplicação: Grupo de Usuário'
@@ -116,6 +117,10 @@ GroupPermission.create! user_group: user_group_administrador_level_0, segment: s
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_user_permission, permission: permission_new
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_user_permission, permission: permission_update
 
+# Módulo Report
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_report, permission: permission_index
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_report, permission: permission_show
+
 # Permissão de grupo
 # Agente 
 # Observação: Apenas agente level 0
@@ -123,6 +128,10 @@ GroupPermission.create! user_group: user_group_administrador_level_0, segment: s
 GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_person, permission: permission_index
 GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_person, permission: permission_show
 GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_person, permission: permission_new
+
+# Módulo Report
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_index
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_show
 
 # Permissão de grupo
 # Delegado
@@ -134,6 +143,10 @@ GroupPermission.create! user_group: user_group_delegado_level_0, segment: segmen
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_new
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_update
 
+# Módulo Report
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_index
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_show
+
 # Permissão de grupo
 # Périto
 # Observação: Apenas périto level 0
@@ -142,6 +155,13 @@ GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_
 GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_person, permission: permission_show
 GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_person, permission: permission_new
 GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_person, permission: permission_update
+
+# Módulo Report
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_create
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_index
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_show
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_new
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_update
 
 # Adicionando usuário a um grupo
 puts 'Adicionando usuário a um grupo'
@@ -160,3 +180,17 @@ user_delegado.save
 # User Périto
 user_perito.user_group = user_group_perito_level_0
 user_perito.save
+
+puts 'Criando uma pessoa no sistema'
+# Criando uma Pessoa para testar alguns módulos
+person = Person.create! name: 'Pessoa da Silva', rg: '12345678', cpf: '12345678', gender: 1, phone: '1827121218', cell_phone: '12710928108'
+person.save
+
+puts 'Criando um órgão no sistema'
+
+# Criando uma Órgão para testar alguns módulos
+district1 = District.create! name: 'Instituto Médico Legal', public_place: 'Logradouro', city: 'Teresina', state: 'Piauí', cep: '64600-000', phone: '89172182', email: 'iml@email.com', neighborhood: 'Bairro do IML'
+district1.save
+
+district2 = District.create! name: 'Departamento de Polícia Civil de Picos', public_place: 'Logradouro', city: 'Picos', state: 'Piauí', cep: '64620-000', phone: '8914472182', email: 'policiacivil@email.com', neighborhood: 'Bairro de Picos'
+district2.save

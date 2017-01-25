@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124230930) do
+ActiveRecord::Schema.define(version: 20170125192302) do
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -101,6 +101,16 @@ ActiveRecord::Schema.define(version: 20170124230930) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer  "resquest_criminal_id"
+    t.integer  "user_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "reports", ["resquest_criminal_id"], name: "index_reports_on_resquest_criminal_id"
+  add_index "reports", ["user_id"], name: "index_reports_on_user_id"
 
   create_table "resquest_criminals", force: :cascade do |t|
     t.integer  "district_resquest"

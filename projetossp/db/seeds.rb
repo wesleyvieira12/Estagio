@@ -4,10 +4,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 puts "Criando usuários"
-user_administrador = User.create! email: 'administrador@email.com', password: '12345678', password_confirmation: '12345678', approved: true
-user_delegado = User.create! email: 'delegado@email.com', password: '12345678', password_confirmation: '12345678', approved: false
-user_perito = User.create! email: 'perito@email.com', password: '12345678', password_confirmation: '12345678', approved: false
-user_agente = User.create! email: 'agente@email.com', password: '12345678', password_confirmation: '12345678', approved: false
+user_administrador = User.create! name: 'Administrador', email: 'administrador@email.com', password: '12345678', password_confirmation: '12345678', approved: true
+user_delegado = User.create! name: 'Delegado', email: 'delegado@email.com', password: '12345678', password_confirmation: '12345678', approved: false
+user_perito = User.create! name: 'Perito', email: 'perito@email.com', password: '12345678', password_confirmation: '12345678', approved: false
+user_agente = User.create! name: 'Agente', email: 'agente@email.com', password: '12345678', password_confirmation: '12345678', approved: false
 puts 'email: josafa@email.com 
     senha: 12345678 
     email: delegado@email.com 
@@ -42,19 +42,19 @@ permission_update = Permission.create! name: 'update', description: 'método upd
 # Criando grupo de usuário
 puts 'Criando grupo de usuário'
 # Administrador
-user_group_administrador_level_0 = UserGroup.create! function: 3, level: 0
+user_group_administrador_level_0 = UserGroup.create! function: 3, level: 0, description: 'Administrador'
 # Agente
-user_group_agente_level_0 = UserGroup.create! function: 0, level: 0
-user_group_agente_level_1 = UserGroup.create! function: 0, level: 1
-user_group_agente_level_2 = UserGroup.create! function: 0, level: 2
+user_group_agente_level_0 = UserGroup.create! function: 0, level: 0, description: 'Agente 0'
+user_group_agente_level_1 = UserGroup.create! function: 0, level: 1, description: 'Agente 1'
+user_group_agente_level_2 = UserGroup.create! function: 0, level: 2, description: 'Agente 2'
 # Delegado
-user_group_delegado_level_0 = UserGroup.create! function: 2, level: 0
-user_group_delegado_level_1 = UserGroup.create! function: 2, level: 1
-user_group_delegado_level_2 = UserGroup.create! function: 2, level: 2
+user_group_delegado_level_0 = UserGroup.create! function: 2, level: 0, description: 'Delegado 0'
+user_group_delegado_level_1 = UserGroup.create! function: 2, level: 1, description: 'Delegado 1'
+user_group_delegado_level_2 = UserGroup.create! function: 2, level: 2, description: 'Delegado 2'
 # Périto
-user_group_perito_level_0 = UserGroup.create! function: 1, level: 0
-user_group_perito_level_1 = UserGroup.create! function: 1, level: 1
-user_group_perito_level_2 = UserGroup.create! function: 1, level: 2
+user_group_perito_level_0 = UserGroup.create! function: 1, level: 0, description: 'Perito 0'
+user_group_perito_level_1 = UserGroup.create! function: 1, level: 1, description: 'Perito 1'
+user_group_perito_level_2 = UserGroup.create! function: 1, level: 2, description: 'Perito 2'
 
 # Permissão de grupo
 puts 'Adicionando permissões de grupo'

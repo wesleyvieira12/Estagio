@@ -25,6 +25,8 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    #Pegando hora atual do registro
+    @user.registration_date = Time.now
 
     respond_to do |format|
       if @user.save

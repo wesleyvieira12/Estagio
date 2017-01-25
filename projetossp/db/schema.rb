@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124212503) do
+ActiveRecord::Schema.define(version: 20170124230930) do
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -83,6 +83,37 @@ ActiveRecord::Schema.define(version: 20170124212503) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "question_resquest_criminals", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "resquest_criminal_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "question_resquest_criminals", ["question_id"], name: "index_question_resquest_criminals_on_question_id"
+  add_index "question_resquest_criminals", ["resquest_criminal_id"], name: "index_question_resquest_criminals_on_resquest_criminal_id"
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "type"
+    t.text     "description"
+    t.boolean  "default"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "resquest_criminals", force: :cascade do |t|
+    t.integer  "district_resquest"
+    t.integer  "district_send"
+    t.integer  "user_id"
+    t.integer  "type"
+    t.integer  "person_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "resquest_criminals", ["person_id"], name: "index_resquest_criminals_on_person_id"
+  add_index "resquest_criminals", ["user_id"], name: "index_resquest_criminals_on_user_id"
 
   create_table "segments", force: :cascade do |t|
     t.string   "name"

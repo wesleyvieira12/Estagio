@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'auditor/index'
   get 'auditor/show/:id', to: 'auditor#show', as: :show_auditor
 
+  get 'images_for_report/index'
+
   get 'users/change_approved/:id', to: 'users#change_approved', as: :change_approved
   
   resources :people

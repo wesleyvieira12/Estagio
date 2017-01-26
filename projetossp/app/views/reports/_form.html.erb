@@ -12,13 +12,32 @@
   <% end %>
 
   <div class="field">
+    
     <%= f.label :resquest_criminal_id %><br>
     <%= f.number_field :resquest_criminal_id %>
+
+    <%= link_to_add_association('Adicionar imagem', f, :image_reports, 'data-association-insertion-node' => "#list-image ol", 'data-association-insertion-method' => "append", :class => 'ui teal button') %>
+
+    <fieldset id="list-image">
+
+    <ol>
+
+      <%= f.fields_for :image_reports do |image_report| %>
+
+        <%= render partial: "image_report_fields", locals: {f: image_report} %>
+
+      <% end %>
+
+    </ol>
+
+  </fieldset>
+
   </div>
   <!--<div class="field">
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
   </div> Aqui foi removido, confira o método create do controller reports para acompanhar a solução -->
+
   <div class="actions">
     <%= f.submit %>
   </div>

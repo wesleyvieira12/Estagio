@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Description</th>
+      <th>Report ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @image_reports.each do |image_report| %>
       <tr>
         <td><%= image_report.description %></td>
+        <td><%= image_report.report_id %></td>
         <td><%= link_to 'Show', image_report %></td>
         <td><%= link_to 'Edit', edit_image_report_path(image_report) %></td>
         <td><%= link_to 'Destroy', image_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th> ID </th>
       <th>Resquest criminal ID</th>
       <th>Perito User Name</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
+        <td><%= report.id %></td>
         <td><%= report.resquest_criminal.id %></td>
         <td><%= report.user.name %></td>
         <td><%= link_to 'Show', report %></td>

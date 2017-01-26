@@ -3,22 +3,13 @@
 
   <div>
 
-    <br>
-
-    <h3>Imagens</h3>
-
     <div class="column">
 
-      <br>
-      <br>
-
     </div>
-
       <br>
+      <p> <%= link_to 'Voltar', reports_path, class: 'ui tiny blue basic button'%> </p>
       <br>
-      <p> <%= link_to("Voltar", reports_path)%> </p>
-      <br>
-      <table class="table">
+      <table class="ui blue table">
         <tbody>
           <% count=0 %>
           <% images = ImageReport.all %>
@@ -33,6 +24,9 @@
         </tbody>
       </table>
         
+        <br>
+        <br>
+        <br>
     </div>
   </div>
 </div>

@@ -11,12 +11,12 @@
   	Usuários
   <% end %>
 
-  <%= link_to auditor_index_path, class: "#{is_current_page?(users_path)} item" do %>
+  <%= link_to auditor_index_path, class: "#{is_current_page?(auditor_index_path)} item" do %>
   <i class="spy icon"></i>
   	Auditoria
   <% end %>
 
-  <%= link_to reports_path, class: "#{is_current_page?(users_path)} item" do %>
+  <%= link_to reports_path, class: "#{is_current_page?(reports_path)} item" do %>
   <i class="edit icon"></i>
   	Relatório
   <% end %>  

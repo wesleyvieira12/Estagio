@@ -9,12 +9,13 @@
   <div class="controls">
 
     <%= f.label :avatar %> <br>
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar, :cols => "20", :rows => "10" %>
 
   </div>
 
+  <br>
   <div class="controls">
-    <%= link_to_remove_association "Remover", f %>
+    <%= link_to_remove_association "Remover", f, class: 'ui tiny blue basic button' %>
   </div>
 
 </li>

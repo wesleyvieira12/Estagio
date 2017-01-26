@@ -16,6 +16,9 @@
     <%= f.label :resquest_criminal_id %><br>
     <%= f.number_field :resquest_criminal_id %>
 
+    <br>
+    <br>
+
     <%= link_to_add_association('Adicionar imagem', f, :image_reports, 'data-association-insertion-node' => "#list-image ol", 'data-association-insertion-method' => "append", :class => 'ui teal button') %>
 
     <fieldset id="list-image">
@@ -33,6 +36,8 @@
   </fieldset>
 
   </div>
+
+  <br>
   <!--<div class="field">
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>

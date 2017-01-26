@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Reports</h1>
+<h1>Listando Perícias</h1>
 
-<table>
+<table class="ui blue table">
   <thead>
     <tr>
       <th> ID </th>
       <th>Resquest criminal ID</th>
       <th>Perito User Name</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -18,16 +18,10 @@
         <td><%= report.id %></td>
         <td><%= report.resquest_criminal.id %></td>
         <td><%= report.user.name %></td>
-        <td><%= link_to 'Show', report %></td>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td>
-
-
-            <!--<p> <a href="http://localhost:3000/devices_for_category/index/" style="color:black;"> Ver objetos </a> </p>-->
-            <p><%= link_to("Ver imagens", images_for_report_index_path(devic: report.id)) %></p>
-
-        </td>
+        <td><%= link_to 'Show', report, class: 'ui tiny blue basic button' %></td>
+        <td><%= link_to 'Edit', edit_report_path(report), class: 'ui tiny blue basic button' %></td>
+        <td><p><%= link_to 'Ver imagens', images_for_report_index_path(devic: report.id), class: 'ui tiny green basic button' %></p></td>
+        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button' %></td>
 
       </tr>
     <% end %>
@@ -36,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Report', new_report_path %>
+<%= link_to 'New Report', new_report_path, class: 'ui tiny blue basic button' %>

@@ -24,11 +24,15 @@ class ResquestCriminalsController < ApplicationController
   # POST /resquest_criminals
   # POST /resquest_criminals.json
   def create
-    @resquest_criminal = ResquestCriminal.new(resquest_criminal_params)
+    @resquest_criminal = ResquestCriminal.new()
+     
+    @resquest_criminal.district_send = District.find params[:resquest_criminal][:district_send]
+    @resquest_criminal.person_id= params[:resquest_criminal][:person_id]
+    @resquest_criminal.resquest_type= params[:resquest_criminal][:resquest_type]
 
     # Nessa linha a requisição atual é setada com o ID do usuário atual
     @resquest_criminal.user_id = current_user.id
-
+    @resquest_criminal.district_resquest = current_user.district
     respond_to do |format|
       if @resquest_criminal.save
         format.html { redirect_to @resquest_criminal, notice: 'Resquest criminal was successfully created.' }

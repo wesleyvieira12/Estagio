@@ -1,4 +1,9 @@
 class Report < ActiveRecord::Base
+  
+  # Injeção de funções de auditória
+  audited
+  
+  # Relacionamentos  
   has_many :image_reports, :dependent => :destroy
   belongs_to :resquest_criminal
   belongs_to :user

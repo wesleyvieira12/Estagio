@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   
   # Relacionamentos
   belongs_to :user_group
+  belongs_to :district
   has_many :user_permissions
 
   def active_for_authentication? 

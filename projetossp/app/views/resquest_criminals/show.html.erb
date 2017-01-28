@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
-
+<div class='ui padded center aligned teal  segment show'>
 <p>
-  <strong>District resquest:</strong>
-  <%= @resquest_criminal.district_resquest %>
+  <strong>Orgão resquisitor:</strong>
+  <%= @resquest_criminal.district_resquest.name %>
 </p>
 
 <p>
-  <strong>District send:</strong>
-  <%= @resquest_criminal.district_send %>
+  <strong>Orgão receptor:</strong>
+  <%= @resquest_criminal.district_send.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @resquest_criminal.user %>
+  <strong>Usuário:</strong>
+  <%= @resquest_criminal.user.name %>
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @resquest_criminal.type %>
+  <strong>Tipo de requisição:</strong>
+  <%= @resquest_criminal.resquest_type %>
 </p>
 
 <p>
-  <strong>Person:</strong>
-  <%= @resquest_criminal.person %>
+  <strong>Pessoa:</strong>
+  <%= @resquest_criminal.person.name %>
 </p>
 
-<%= link_to 'Edit', edit_resquest_criminal_path(@resquest_criminal) %> |
-<%= link_to 'Back', resquest_criminals_path %>
+<%= link_to 'Editar', edit_resquest_criminal_path(@resquest_criminal), class: 'ui button' %> 
+<%= link_to 'Voltar', resquest_criminals_path, class: 'ui button' %>

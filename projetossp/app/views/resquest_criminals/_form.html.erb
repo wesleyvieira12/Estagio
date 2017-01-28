@@ -11,27 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :district_resquest %><br>
-    <%= f.number_field :district_resquest %>
-  </div>
+  <!--<div class="field">-->
+    <%# f.label :district_resquest %><br>
+    <%# f.number_field :district_resquest %>
+  <!--</div>-->
   <div class="field">
     <%= f.label :district_send %><br>
-    <%= f.number_field :district_send %>
+    <%= f.collection_select(:district_send, District.all, :id, :name, {:prompt=>true}, {:class=>'ui search dropdown'}) %>
   </div>
   <!--<div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%# f.label :user_id %><br>
+    <%# f.text_field :user_id %>
   </div> Esse campo vai ser removido por conta do usuário atual ser o responsável por esse campo. Veja no controller a solução dessa questão-->
   <div class="field">
     <%= f.label :type %><br>
-    <%= f.number_field :type %>
+    <%# f.select(:type, ResquestCriminal.types.keys, {}) %>
+    <%= f.select :resquest_type, ResquestCriminal.resquest_types.keys, {}, class: 'ui dropdown'%>
   </div>
   <div class="field">
     <%= f.label :person_id %><br>
-    <%= f.number_field :person_id %>
+    <%= f.collection_select(:person_id, Person.all, :id, :name, {:prompt=>true}, {:class=>'ui search dropdown'}) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'ui teal button' %>
   </div>
 <% end %>

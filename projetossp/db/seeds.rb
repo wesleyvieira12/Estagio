@@ -194,3 +194,13 @@ district1.save
 
 district2 = District.create! name: 'Departamento de Polícia Civil de Picos', public_place: 'Logradouro', city: 'Picos', state: 'Piauí', cep: '64620-000', phone: '8914472182', email: 'policiacivil@email.com', neighborhood: 'Bairro de Picos'
 district2.save
+
+# Adicionando endereço aos agentes
+user_administrador.district = district2
+user_administrador.save
+user_agente.district = district2
+user_agente.save
+user_delegado.district = district2
+user_delegado.save
+user_perito.district = district2
+user_perito.save

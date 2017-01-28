@@ -7,6 +7,7 @@ pt-BR:
             group_permission: Permissão de grupo
             permission: Permissão
             person: Pessoa
+            resquest_criminal: Resquisição criminal
             segment: Módulo
             user: Usuário
             user_group: Grupo de usuário
@@ -38,6 +39,12 @@ pt-BR:
                 cell_phone: Celular
                 gender: Gênero
                 photo: Foto
+            resquest_criminal:
+                district_resquest: Orgão resquisitor
+                district_send: Orgão receptor
+                person_id: Pessoa
+                user_id: Usuário
+                resquest_type: Tipo de resquisição
             segment:
                 name: Nome
                 description: Descrição

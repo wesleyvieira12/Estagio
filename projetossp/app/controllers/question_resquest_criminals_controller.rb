@@ -4,26 +4,31 @@ class QuestionResquestCriminalsController < ApplicationController
   # GET /question_resquest_criminals
   # GET /question_resquest_criminals.json
   def index
+    authorize :question_resquest_criminal, :index?
     @question_resquest_criminals = QuestionResquestCriminal.all
   end
 
   # GET /question_resquest_criminals/1
   # GET /question_resquest_criminals/1.json
   def show
+    authorize :question_resquest_criminal, :show?
   end
 
   # GET /question_resquest_criminals/new
   def new
+    authorize :question_resquest_criminal, :new?
     @question_resquest_criminal = QuestionResquestCriminal.new
   end
 
   # GET /question_resquest_criminals/1/edit
   def edit
+    authorize :question_resquest_criminal, :edit?
   end
 
   # POST /question_resquest_criminals
   # POST /question_resquest_criminals.json
   def create
+    authorize :question_resquest_criminal, :create?
     @question_resquest_criminal = QuestionResquestCriminal.new(question_resquest_criminal_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class QuestionResquestCriminalsController < ApplicationController
   # PATCH/PUT /question_resquest_criminals/1
   # PATCH/PUT /question_resquest_criminals/1.json
   def update
+    authorize :question_resquest_criminal, :update?
     respond_to do |format|
       if @question_resquest_criminal.update(question_resquest_criminal_params)
         format.html { redirect_to @question_resquest_criminal, notice: 'Question resquest criminal was successfully updated.' }
@@ -54,6 +60,7 @@ class QuestionResquestCriminalsController < ApplicationController
   # DELETE /question_resquest_criminals/1
   # DELETE /question_resquest_criminals/1.json
   def destroy
+    authorize :question_resquest_criminal, :destroy?
     @question_resquest_criminal.destroy
     respond_to do |format|
       format.html { redirect_to question_resquest_criminals_url, notice: 'Question resquest criminal was successfully destroyed.' }

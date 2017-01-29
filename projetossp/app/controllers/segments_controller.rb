@@ -4,26 +4,31 @@ class SegmentsController < ApplicationController
   # GET /segments
   # GET /segments.json
   def index
+    authorize :segment, :index?
     @segments = Segment.all
   end
 
   # GET /segments/1
   # GET /segments/1.json
   def show
+    authorize :segment, :show?
   end
 
   # GET /segments/new
   def new
+    authorize :segment, :new?
     @segment = Segment.new
   end
 
   # GET /segments/1/edit
   def edit
+    authorize :segment, :edit?
   end
 
   # POST /segments
   # POST /segments.json
   def create
+    authorize :segment, :create?
     @segment = Segment.new(segment_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class SegmentsController < ApplicationController
   # PATCH/PUT /segments/1
   # PATCH/PUT /segments/1.json
   def update
+    authorize :segment, :update?
     respond_to do |format|
       if @segment.update(segment_params)
         format.html { redirect_to @segment, notice: 'Segment was successfully updated.' }
@@ -54,6 +60,7 @@ class SegmentsController < ApplicationController
   # DELETE /segments/1
   # DELETE /segments/1.json
   def destroy
+    authorize :segment, :destroy?
     @segment.destroy
     respond_to do |format|
       format.html { redirect_to segments_url, notice: 'Segment was successfully destroyed.' }

@@ -4,26 +4,31 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
+    authorize :question, :index?
     @questions = Question.all
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
+    authorize :question, :show?
   end
 
   # GET /questions/new
   def new
+    authorize :question, :new?
     @question = Question.new
   end
 
   # GET /questions/1/edit
   def edit
+    authorize :question, :edit?
   end
 
   # POST /questions
   # POST /questions.json
   def create
+    authorize :question, :create?
     @question = Question.new(question_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+    authorize :question, :update?
     respond_to do |format|
       if @question.update(question_params)
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
@@ -54,6 +60,7 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
+    authorize :question, :destroy?
     @question.destroy
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }

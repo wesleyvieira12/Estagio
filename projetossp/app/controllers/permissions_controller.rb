@@ -4,26 +4,31 @@ class PermissionsController < ApplicationController
   # GET /permissions
   # GET /permissions.json
   def index
+    authorize :permission, :index?
     @permissions = Permission.all
   end
 
   # GET /permissions/1
   # GET /permissions/1.json
   def show
+    authorize :permission, :show?
   end
 
   # GET /permissions/new
   def new
+    authorize :permission, :new?
     @permission = Permission.new
   end
 
   # GET /permissions/1/edit
   def edit
+    authorize :permission, :edit?
   end
 
   # POST /permissions
   # POST /permissions.json
   def create
+    authorize :permission, :create?
     @permission = Permission.new(permission_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class PermissionsController < ApplicationController
   # PATCH/PUT /permissions/1
   # PATCH/PUT /permissions/1.json
   def update
+    authorize :permission, :update?
     respond_to do |format|
       if @permission.update(permission_params)
         format.html { redirect_to @permission, notice: 'Permission was successfully updated.' }
@@ -54,6 +60,7 @@ class PermissionsController < ApplicationController
   # DELETE /permissions/1
   # DELETE /permissions/1.json
   def destroy
+    authorize :permission, :destroy?
     @permission.destroy
     respond_to do |format|
       format.html { redirect_to permissions_url, notice: 'Permission was successfully destroyed.' }

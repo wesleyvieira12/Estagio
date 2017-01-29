@@ -15,7 +15,7 @@
   
     <div class="field">
       <%= f.label :district_id %><br>
-      <%= f.collection_select(:district_id, District.all, :id, :name, {:prompt=>true}, {:class=>'ui search dropdown'}) %>
+      <%= f.collection_select(:district_id, @district.list_district, :id, :name, {:prompt=>true}, {:class=>'ui search dropdown'}) %>
     </div>
     <div class="field">
       <%= f.label :name %><br>

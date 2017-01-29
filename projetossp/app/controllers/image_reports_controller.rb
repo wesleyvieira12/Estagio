@@ -4,26 +4,31 @@ class ImageReportsController < ApplicationController
   # GET /image_reports
   # GET /image_reports.json
   def index
+    authorize :image_report, :index?
     @image_reports = ImageReport.all
   end
 
   # GET /image_reports/1
   # GET /image_reports/1.json
   def show
+    authorize :image_report, :show?
   end
 
   # GET /image_reports/new
   def new
+    authorize :image_report, :new?
     @image_report = ImageReport.new
   end
 
   # GET /image_reports/1/edit
   def edit
+    authorize :image_report, :edit?
   end
 
   # POST /image_reports
   # POST /image_reports.json
   def create
+    authorize :image_report, :create?
     @image_report = ImageReport.new(image_report_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class ImageReportsController < ApplicationController
   # PATCH/PUT /image_reports/1
   # PATCH/PUT /image_reports/1.json
   def update
+    authorize :image_report, :update?
     respond_to do |format|
       if @image_report.update(image_report_params)
         format.html { redirect_to @image_report, notice: 'Image report was successfully updated.' }
@@ -54,6 +60,7 @@ class ImageReportsController < ApplicationController
   # DELETE /image_reports/1
   # DELETE /image_reports/1.json
   def destroy
+    authorize :image_report, :destroy?
     @image_report.destroy
     respond_to do |format|
       format.html { redirect_to image_reports_url, notice: 'Image report was successfully destroyed.' }

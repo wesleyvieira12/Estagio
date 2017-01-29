@@ -4,26 +4,31 @@ class GroupPermissionsController < ApplicationController
   # GET /group_permissions
   # GET /group_permissions.json
   def index
+    authorize :group_permission, :index?
     @group_permissions = GroupPermission.all
   end
 
   # GET /group_permissions/1
   # GET /group_permissions/1.json
   def show
+    authorize :group_permission, :show?
   end
 
   # GET /group_permissions/new
   def new
+    authorize :group_permission, :new?
     @group_permission = GroupPermission.new
   end
 
   # GET /group_permissions/1/edit
   def edit
+    authorize :group_permission, :edit?
   end
 
   # POST /group_permissions
   # POST /group_permissions.json
   def create
+    authorize :group_permission, :create?
     @group_permission = GroupPermission.new(group_permission_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class GroupPermissionsController < ApplicationController
   # PATCH/PUT /group_permissions/1
   # PATCH/PUT /group_permissions/1.json
   def update
+    authorize :group_permission, :update?
     respond_to do |format|
       if @group_permission.update(group_permission_params)
         format.html { redirect_to @group_permission, notice: 'Group permission was successfully updated.' }
@@ -54,6 +60,7 @@ class GroupPermissionsController < ApplicationController
   # DELETE /group_permissions/1
   # DELETE /group_permissions/1.json
   def destroy
+    authorize :group_permission, :destroy?
     @group_permission.destroy
     respond_to do |format|
       format.html { redirect_to group_permissions_url, notice: 'Group permission was successfully destroyed.' }

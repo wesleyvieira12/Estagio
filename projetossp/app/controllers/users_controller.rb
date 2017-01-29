@@ -71,12 +71,12 @@ class UsersController < ApplicationController
       @user.save
       respond_to do |format|
         if @user.approved == true
-        format.html { redirect_to @user, notice: t(".notice_true") }
-        format.json { render :index, status: :ok, location: @user }
-      else
-        format.html { redirect_to @user, notice: t(".notice_false") }
-        format.json { render :index, status: :ok, location: @user }
-      end
+          format.html { redirect_to @user, notice: t(".notice_true") }
+          format.json { render :index, status: :ok, location: @user }
+        else
+          format.html { redirect_to @user, notice: t(".notice_false") }
+          format.json { render :index, status: :ok, location: @user }
+        end
       end
   end
 
@@ -90,6 +90,4 @@ class UsersController < ApplicationController
     def user_params
       params.fetch(:user, {})
     end
-
-
 end

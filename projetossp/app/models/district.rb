@@ -30,4 +30,13 @@ class District < ActiveRecord::Base
         end
         return result
     end
+    
+    # Lista de distritos
+    def list_district
+        unless self.id 
+            District.all
+        else
+            District.where.not(id: self.id) 
+        end
+    end
 end

@@ -4,27 +4,31 @@ class ResquestCriminalsController < ApplicationController
   # GET /resquest_criminals
   # GET /resquest_criminals.json
   def index
+    authorize :resquest_criminal, :index?
     @resquest_criminals = ResquestCriminal.all
   end
 
   # GET /resquest_criminals/1
   # GET /resquest_criminals/1.json
   def show
-    impressionist @resquest_criminal
+    authorize :resquest_criminal, :index?
   end
 
   # GET /resquest_criminals/new
   def new
+    authorize :resquest_criminal, :new?
     @resquest_criminal = ResquestCriminal.new
   end
 
   # GET /resquest_criminals/1/edit
   def edit
+    authorize :resquest_criminal, :edit?
   end
 
   # POST /resquest_criminals
   # POST /resquest_criminals.json
   def create
+    authorize :resquest_criminal, :create?
     @resquest_criminal = ResquestCriminal.new()
      
     @resquest_criminal.district_send = District.find params[:resquest_criminal][:district_send]
@@ -48,6 +52,7 @@ class ResquestCriminalsController < ApplicationController
   # PATCH/PUT /resquest_criminals/1
   # PATCH/PUT /resquest_criminals/1.json
   def update
+    authorize :resquest_criminal, :update?
     respond_to do |format|
       if @resquest_criminal.update(resquest_criminal_params)
         format.html { redirect_to @resquest_criminal, notice: 'Resquest criminal was successfully updated.' }
@@ -62,6 +67,7 @@ class ResquestCriminalsController < ApplicationController
   # DELETE /resquest_criminals/1
   # DELETE /resquest_criminals/1.json
   def destroy
+    authorize :resquest_criminal, :destroy?
     @resquest_criminal.destroy
     respond_to do |format|
       format.html { redirect_to resquest_criminals_url, notice: 'Resquest criminal was successfully destroyed.' }

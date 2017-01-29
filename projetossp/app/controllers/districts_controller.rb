@@ -4,26 +4,31 @@ class DistrictsController < ApplicationController
   # GET /districts
   # GET /districts.json
   def index
+    authorize :district, :index?
     @districts = District.all
   end
 
   # GET /districts/1
   # GET /districts/1.json
   def show
+    authorize :district, :show?
   end
 
   # GET /districts/new
   def new
+    authorize :district, :new?
     @district = District.new
   end
 
   # GET /districts/1/edit
   def edit
+    authorize :district, :edit?
   end
 
   # POST /districts
   # POST /districts.json
   def create
+    authorize :district, :create?
     @district = District.new(district_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class DistrictsController < ApplicationController
   # PATCH/PUT /districts/1
   # PATCH/PUT /districts/1.json
   def update
+    authorize :district, :update?
     respond_to do |format|
       if @district.update(district_params)
         format.html { redirect_to @district, notice: 'District was successfully updated.' }
@@ -54,6 +60,7 @@ class DistrictsController < ApplicationController
   # DELETE /districts/1
   # DELETE /districts/1.json
   def destroy
+    authorize :district, :destroy?
     @district.destroy
     respond_to do |format|
       format.html { redirect_to districts_url, notice: 'District was successfully destroyed.' }

@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    authorize Person
+    authorize :person, :index?
     @q = Person.ransack(params[:q])
     @people = @q.result
   end
@@ -14,20 +14,24 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    authorize :person, :show?
   end
 
   # GET /people/new
   def new
+    authorize :person, :new?
     @person = Person.new
   end
 
   # GET /people/1/edit
   def edit
+    authorize :person, :edit?
   end
 
   # POST /people
   # POST /people.json
   def create
+    authorize :person, :create?
     @person = Person.new(person_params)
 
     respond_to do |format|
@@ -44,6 +48,7 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   # PATCH/PUT /people/1.json
   def update
+    authorize :person, :update?
     respond_to do |format|
       if @person.update(person_params)
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
@@ -58,6 +63,7 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
+    authorize :person, :destroy?
     @person.destroy
     respond_to do |format|
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }

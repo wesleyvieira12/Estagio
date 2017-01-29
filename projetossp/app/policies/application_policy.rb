@@ -7,15 +7,16 @@ class ApplicationPolicy
   end
 
   def index?
-    true
+    user.permission_segment? record, :index
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    #scope.where(:id => record.id).exists?
+    user.permission_segment? record, :show
   end
 
   def create?
-    true
+    user.permission_segment? record, :create
   end
 
   def new?
@@ -23,7 +24,7 @@ class ApplicationPolicy
   end
 
   def update?
-    true
+    user.permission_segment? record, :update
   end
 
   def edit?
@@ -31,7 +32,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    user.permission_segment? record, :destroy
   end
 
   def scope

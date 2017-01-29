@@ -2,6 +2,7 @@ class Report < ActiveRecord::Base
   
   # Injeção de funções de auditória
   audited
+  is_impressionable
   
   # Relacionamentos  
   has_many :image_reports, :dependent => :destroy

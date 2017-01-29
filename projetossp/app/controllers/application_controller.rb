@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   
-
+  # Log de todas resquisições ao servidor
+  impressionist
  
   include Pundit
   #after_action :verify_authorized

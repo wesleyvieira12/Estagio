@@ -14,6 +14,7 @@ class UserGroup < ActiveRecord::Base
     
     # Injeção de funções de auditória
     audited
+    is_impressionable
     
     # Relacionamentos
     has_many :group_permissions

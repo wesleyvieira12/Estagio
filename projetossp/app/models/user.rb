@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   
   # Injeção de funções de auditória
   audited
+  is_impressionable
   
   # Relacionamentos
   belongs_to :user_group

@@ -24,7 +24,7 @@
     <%# f.text_field :user_id %>
   </div> Esse campo vai ser removido por conta do usuário atual ser o responsável por esse campo. Veja no controller a solução dessa questão-->
   <div class="field">
-    <%= f.label :type %><br>
+    <%= f.label :resquest_type %><br>
     <%# f.select(:type, ResquestCriminal.types.keys, {}) %>
     <%= f.select :resquest_type, ResquestCriminal.resquest_types.keys, {}, class: 'ui dropdown'%>
   </div>

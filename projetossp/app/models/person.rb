@@ -5,6 +5,7 @@ class Person < ActiveRecord::Base
     
     # Injeção de funções de auditória
     audited
+    is_impressionable
     
     # Validates
     validates :name, presence: true

@@ -10,6 +10,7 @@ class ResquestCriminalsController < ApplicationController
   # GET /resquest_criminals/1
   # GET /resquest_criminals/1.json
   def show
+    impressionist @resquest_criminal
   end
 
   # GET /resquest_criminals/new

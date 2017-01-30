@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Listando Perícias</h1>
 
 <table class="ui blue table">
   <thead>
     <tr>
-      <th> ID </th>
-      <th>Resquest criminal ID</th>
-      <th>Perito User Name</th>
+      <th>Resquisição ID</th>
+      <th>Perito </th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -15,14 +13,38 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
-        <td><%= report.id %></td>
         <td><%= report.resquest_criminal.id %></td>
         <td><%= report.user.name %></td>
-        <td><%= link_to 'Show', report, class: 'ui tiny blue basic button' %></td>
-        <td><%= link_to 'Edit', edit_report_path(report), class: 'ui tiny blue basic button' %></td>
-        <td><p><%= link_to 'Ver imagens', images_for_report_index_path(devic: report.id), class: 'ui tiny green basic button' %></p></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button' %></td>
+        <td><%# link_to 'Detalhes', report, class: 'ui tiny blue basic button' %></td>
+        <td><%# link_to 'Editar', edit_report_path(report), class: 'ui tiny blue basic button' %></td>
+        <td><p><%# link_to 'Ver imagens', images_for_report_index_path(devic: report.id), class: 'ui tiny green basic button' %></p></td>
+        <td><%# link_to 'Excluir', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
+<br>
+<table class="ui blue table">
+  <thead>
+    <tr>
+      <th>Pesssoa</th>
+      <th>Agente Emissor </th>
+      <th>Orgão Expedidor</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resquest_criminals.each do |resquest_criminal| %>
+      <tr>
+        <td><%= resquest_criminal.person.name  %></td>
+        <td><%= resquest_criminal.user.name %></td>
+        <td><%= resquest_criminal.district_resquest.name %></td>
+        <td><%# link_to 'Detalhes', report, class: 'ui tiny blue basic button' %></td>
+        <td><%# link_to 'Editar', edit_report_path(report), class: 'ui tiny blue basic button' %></td>
+        <td><p><%# link_to 'Ver imagens', images_for_report_index_path(devic: report.id), class: 'ui tiny green basic button' %></p></td>
+        <td><%# link_to 'Excluir', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +52,4 @@
 
 <br>
 
-<%= link_to 'New Report', new_report_path, class: 'ui tiny blue basic button' %>
+<%# link_to 'Novo Laudo', new_report_path, class: 'ui teal button' %>

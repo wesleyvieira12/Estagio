@@ -5,6 +5,8 @@ pt-BR:
         models:
             district: Orgão
             group_permission: Permissão de grupo
+            image_report: Imagem de laudo
+            image_for_report: Imagem para laudo
             permission: Permissão
             person: Pessoa
             question: Questão
@@ -31,6 +33,9 @@ pt-BR:
                 user_group_id: Grupo de usuário
                 segment_id: Módulo
                 permission_id: Permissão
+            image_report:
+                description: Descrição
+                avatar: Imagem
             permission:
                 name: Nome
                 description: Descrição

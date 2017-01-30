@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130124014) do
 
+ActiveRecord::Schema.define(version: 20170130014919) do
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
     t.string   "auditable_type"
@@ -155,8 +155,9 @@ ActiveRecord::Schema.define(version: 20170130124014) do
     t.integer  "user_id"
     t.integer  "resquest_type"
     t.integer  "person_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "status",            default: 0
   end
 
   add_index "resquest_criminals", ["person_id"], name: "index_resquest_criminals_on_person_id"

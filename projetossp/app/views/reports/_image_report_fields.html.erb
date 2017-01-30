@@ -3,7 +3,7 @@
 
   <div class="controls">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'ui file ' %>
   </div>
 
   <div class="controls">
@@ -15,7 +15,7 @@
 
   <br>
   <div class="controls">
-    <%= link_to_remove_association "Remover", f, class: 'ui tiny blue basic button' %>
+    <%= link_to_remove_association "Remover", f, class: 'ui tiny red basic button' %>
   </div>
 
 </li>

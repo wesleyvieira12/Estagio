@@ -83,6 +83,6 @@ class ResquestCriminalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resquest_criminal_params
-      params.require(:resquest_criminal).permit(:district_resquest, :district_send, :user_id, :type, :person_id)
+      params.require(:resquest_criminal).permit(:district_resquest, :district_send, :user_id, :resquest_type, :person_id)
     end
 end

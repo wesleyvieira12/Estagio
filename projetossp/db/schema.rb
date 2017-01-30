@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20170130171330) do
 
-ActiveRecord::Schema.define(version: 20170130014919) do
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
     t.string   "auditable_type"
@@ -132,11 +132,11 @@ ActiveRecord::Schema.define(version: 20170130014919) do
   add_index "question_resquest_criminals", ["resquest_criminal_id"], name: "index_question_resquest_criminals_on_resquest_criminal_id"
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "type"
+    t.integer  "resquest_type"
     t.text     "description"
     t.boolean  "default"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "reports", force: :cascade do |t|

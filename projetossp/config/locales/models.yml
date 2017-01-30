@@ -48,7 +48,7 @@ pt-BR:
                 gender: Gênero
                 photo: Foto
             question:
-                type: Tipo
+                resquest_type: Tipo
                 default: Padrão?
                 description: Descrição
             question_resquest_criminal:
@@ -84,3 +84,4 @@ pt-BR:
                 name: Nome
                 current_password: Senha atual
                 user_group_id: Cargo
+                photo: Foto de perfil

@@ -9,37 +9,37 @@
           <%= f.label :name %><br />
           <%= f.text_field :name, autofocus: true, placeholder: "Digite seu nome" %>
       </div>
-
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
-      </div>
-      <div class="field">  
-          <%= f.label :user_group_id %><br />
-          <%= f.collection_select(:user_group_id, UserGroup.all, :id, :description) %>
-          
-      </div>
-      <div class="field">  
-          <%= f.label :registration %><br />
-          <%= f.text_field :registration, placeholder: "Digite sua matricula" %>
-      </div>
-
-      <div class="field">  
-          <%= f.label :district_id %><br />
-          <%= f.collection_select(:district_id, District.all, :id, :name) %>
-          
-      </div>
-
+    
+      <% if policy(:user).edit? %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+        <div class="field">  
+            <%= f.label :user_group_id %><br />
+            <%= f.collection_select(:user_group_id, UserGroup.all, :id, :description) %>
+        </div>
+        <div class="field">  
+            <%= f.label :registration %><br />
+            <%= f.text_field :registration, placeholder: "Digite sua matricula" %>
+        </div>
+  
+        <div class="field">  
+            <%= f.label :district_id %><br />
+            <%= f.collection_select(:district_id, District.all, :id, :name, {}, class: 'ui dropdown') %>
+        </div>
+      <% end %>
+  
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label :password %> <i>(Deixe em branco se você não quer mudar isto!)</i><br />
         <%= f.password_field :password, autocomplete: "off" %>
         <% if @minimum_password_length %>
           <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
+          <em><%= @minimum_password_length %> Mínimo de caracteres</em>
         <% end %>
       </div>
 
@@ -49,7 +49,8 @@
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :current_password %> <i>(Nós precisamos que você coloque sua senha atual para confirmar as mudanças
+        )</i><br />
         <%= f.password_field :current_password, autocomplete: "off" %>
       </div>
 
@@ -58,11 +59,9 @@
       </div>
     <% end %>
 
-    <h3>Cancel my account</h3>
+    <%# button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui button red' %></p>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui button red' %></p>
-
-    <%= link_to "Back", :back, class: 'ui button blue' %>
+    <%# link_to "Back", :back, class: 'ui button blue' %>
     </div>
   </div>
 </div>

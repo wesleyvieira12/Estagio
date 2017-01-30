@@ -7,6 +7,9 @@ pt-BR:
             group_permission: Permissão de grupo
             permission: Permissão
             person: Pessoa
+            question: Questão
+            question_resquest_criminal: Questão de resquisição
+            report: Laudo
             resquest_criminal: Resquisição criminal
             segment: Módulo
             user: Usuário
@@ -39,6 +42,16 @@ pt-BR:
                 cell_phone: Celular
                 gender: Gênero
                 photo: Foto
+            question:
+                type: Tipo
+                default: Padrão?
+                description: Descrição
+            question_resquest_criminal:
+                resquest_criminal_id: Resquisição
+                question_id: Questão
+            report:
+                resquest_criminal_id: Requisição
+                user_id: Usuário
             resquest_criminal:
                 district_resquest: Orgão resquisitor
                 district_send: Orgão receptor
@@ -61,4 +74,8 @@ pt-BR:
                 district_id: Distrito
                 registration: Mátricula
                 date_registration: Data mátricula
-                
+                password: Senha
+                password_confirmation: Confirmação de senha
+                name: Nome
+                current_password: Senha atual
+                user_group_id: Cargo

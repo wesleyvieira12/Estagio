@@ -4,26 +4,31 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    authorize :user, :index?
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    authorize :user, :show?
   end
 
   # GET /users/new
   def new
+    authorize :user, :new?
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
+    authorize :user, :edit?
   end
 
   # POST /users
   # POST /users.json
   def create
+    authorize :user, :create?
     @user = User.new(user_params)
     #Pegando hora atual do registro
     @user.registration_date = Time.now
@@ -42,6 +47,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    authorize :user, :update?
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: t(".notice") }
@@ -56,6 +62,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    authorize :user, :destroy?
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: t(".notice") }
@@ -66,19 +73,20 @@ class UsersController < ApplicationController
   # Método responsável por alterar o atributo approved do Usuário
   # O atributo approved é responsável por possibilitar o acesso ao sistema
   def change_approved
-      @user = User.find(params[:id])
-      @user.approved = !@user.approved
-      @user.save
-      respond_to do |format|
-        if @user.approved == true
-          format.html { redirect_to @user, notice: t(".notice_true") }
-          format.json { render :index, status: :ok, location: @user }
-        else
-          format.html { redirect_to @user, notice: t(".notice_false") }
-          format.json { render :index, status: :ok, location: @user }
-        end
+    authorize :user, :change_approved?
+    @user = User.find(params[:id])
+    @user.approved = !@user.approved
+    @user.save
+    respond_to do |format|
+      if @user.approved == true
+        format.html { redirect_to @user, notice: t(".notice_true") }
+        format.json { render :index, status: :ok, location: @user }
+      else
+        format.html { redirect_to @user, notice: t(".notice_false") }
+        format.json { render :index, status: :ok, location: @user }
       end
-  end
+    end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

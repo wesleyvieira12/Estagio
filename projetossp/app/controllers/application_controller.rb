@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
   impressionist
  
   include Pundit
-  after_action :verify_authorized
-
+  after_action :verify_authorized, unless: :devise_controller?
+  
   protected
 
   def configure_permitted_parameters
@@ -22,4 +22,5 @@ class ApplicationController < ActionController::Base
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:registration_date])
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:user_group_id])
   end
+  
 end

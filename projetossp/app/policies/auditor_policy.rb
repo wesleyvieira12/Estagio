@@ -1,14 +1,13 @@
 class AuditorPolicy < ApplicationPolicy
+  def index?
+    user.permission_segment? :auditor, :index
+  end
+    
+  def show?
+    user.permission_segment? :auditor, :show
+  end
+    
   class Scope < Scope
-    
-    def index?
-      user.permission_segment? :auditor, :index
-    end
-    
-    def show?
-      user.permission_segment? :auditor, :show
-    end
-    
     def resolve
       scope
     end

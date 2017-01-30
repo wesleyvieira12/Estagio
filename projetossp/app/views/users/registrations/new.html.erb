@@ -12,6 +12,12 @@
           <%= f.text_field :name, autofocus: true, placeholder: "Digite seu nome" %>
       </div>
 
+      <div class="four wide field">
+          <%= f.label :photo %><br>
+          <%= f.file_field :photo %>
+          <%= f.hidden_field :photo_cache %>
+      </div>
+
       <div class="field">  
           <%= f.label :email %><br />
           <%= f.email_field :email, placeholder: "Digite seu melhor E-mail" %>

@@ -4,7 +4,7 @@
 	<div class="item">
     
     <div class="ui small image">
-      <img src="/Imagens/avatar.png">
+        <%= image_tag(@user.photo_url) if @user.photo? %>
     </div>
 
     <div class="content">

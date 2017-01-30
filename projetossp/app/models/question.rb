@@ -1,9 +1,11 @@
 class Question < ActiveRecord::Base
     
-    enum resquest_type: [ :cadaverico, :arma, :corpo_de_delito ]
-    
     # Injeção de funções de auditória
     audited
     is_impressionable
     
+    # Relacionamentos
+    belongs_to :resquest_type
+    has_many :question_resquest_criminals
+    has_many :resquest_criminals, through: :question_resquest_criminals
 end

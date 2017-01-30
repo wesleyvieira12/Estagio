@@ -36,7 +36,7 @@ segment_segment = Segment.create! name: 'segment', description: 'Segmento ou nom
 segment_user = Segment.create! name: 'user', description: 'Segmento ou nome dos módulos da aplicação: Usuário'
 segment_user_group = Segment.create! name: 'user_group', description: 'Segmento ou nome dos módulos da aplicação: Grupo de Usuário'
 segment_user_permission = Segment.create! name: 'user_permission', description: 'Segmento ou nome dos módulos da aplicação: Permissão de Usuário'
-
+segment_resquest_type = Segment.create! name: 'resquest_type', description: 'Segmento ou nome dos módulos da aplicação: Tipo de requisição'
 
 # Nome do método do controlador
 puts 'Criando permissões'
@@ -171,6 +171,13 @@ GroupPermission.create! user_group: user_group_administrador_level_0, segment: s
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_criminal, permission: permission_show
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_criminal, permission: permission_new
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_criminal, permission: permission_update
+# Módulo ResquestType
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_type, permission: permission_create
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_type, permission: permission_destroy
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_type, permission: permission_index
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_type, permission: permission_show
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_type, permission: permission_new
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_type, permission: permission_update
 
 # Permissão de grupo
 # Agente 
@@ -275,4 +282,21 @@ user_delegado.save
 user_perito.district = district1
 user_perito.save
 
-# Adicionando permissão ao login
+# Adicionando perguntas padrões
+puts "Adicionando questões ao sistema"
+Question.create! description: 'Pergunta padrão cadaverico 1' , default: true, resquest_type: 0
+Question.create! description: 'Pergunta padrão cadaverico 2' , default: true, resquest_type: 0
+Question.create! description: 'Pergunta padrão cadaverico 3' , default: true, resquest_type: 0
+Question.create! description: 'Pergunta padrão cadaverico 4' , default: true, resquest_type: 0
+Question.create! description: 'Pergunta padrão cadaverico 5' , default: true, resquest_type: 0
+Question.create! description: 'Pergunta padrão arma 1' , default: true, resquest_type: 1
+Question.create! description: 'Pergunta padrão arma 2' , default: true, resquest_type: 1
+Question.create! description: 'Pergunta padrão arma 3' , default: true, resquest_type: 1
+Question.create! description: 'Pergunta padrão arma 4' , default: true, resquest_type: 1
+Question.create! description: 'Pergunta padrão arma 5' , default: true, resquest_type: 1
+Question.create! description: 'Pergunta padrão corpo_de_delito 1' , default: true, resquest_type: 2
+Question.create! description: 'Pergunta padrão corpo_de_delito 2' , default: true, resquest_type: 2
+Question.create! description: 'Pergunta padrão corpo_de_delito 3' , default: true, resquest_type: 2
+Question.create! description: 'Pergunta padrão corpo_de_delito 4' , default: true, resquest_type: 2
+Question.create! description: 'Pergunta padrão corpo_de_delito 5' , default: true, resquest_type: 2
+

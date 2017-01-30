@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130124014) do
+ActiveRecord::Schema.define(version: 20170130214740) do
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -132,12 +132,14 @@ ActiveRecord::Schema.define(version: 20170130124014) do
   add_index "question_resquest_criminals", ["resquest_criminal_id"], name: "index_question_resquest_criminals_on_resquest_criminal_id"
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "resquest_type"
     t.text     "description"
     t.boolean  "default"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "resquest_type_id"
   end
+
+  add_index "questions", ["resquest_type_id"], name: "index_questions_on_resquest_type_id"
 
   create_table "reports", force: :cascade do |t|
     t.integer  "resquest_criminal_id"
@@ -153,15 +155,23 @@ ActiveRecord::Schema.define(version: 20170130124014) do
     t.integer  "district_resquest"
     t.integer  "district_send"
     t.integer  "user_id"
-    t.integer  "resquest_type"
     t.integer  "person_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "status",            default: 0
+    t.integer  "resquest_type_id"
   end
 
   add_index "resquest_criminals", ["person_id"], name: "index_resquest_criminals_on_person_id"
+  add_index "resquest_criminals", ["resquest_type_id"], name: "index_resquest_criminals_on_resquest_type_id"
   add_index "resquest_criminals", ["user_id"], name: "index_resquest_criminals_on_user_id"
+
+  create_table "resquest_types", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "segments", force: :cascade do |t|
     t.string   "name"

@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_resquest_criminal
   # GET /questions
   # GET /questions.json
   def index
@@ -30,10 +30,10 @@ class QuestionsController < ApplicationController
   def create
     authorize :question, :create?
     @question = Question.new(question_params)
-
+    @question.resquest_criminals << @resquest_criminal
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to [@resquest_criminal,@question], notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -48,8 +48,7 @@ class QuestionsController < ApplicationController
     authorize :question, :update?
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
+        format.html { redirect_to [@resquest_criminal,@question], notice: 'Question was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -61,10 +60,13 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1.json
   def destroy
     authorize :question, :destroy?
-    @question.destroy
+    unless @question.default
+      @question.destroy
+    else
+      @question.resquest_criminals.delete(@resquest_criminal)
+    end
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
-      format.json { head :no_content }
+        format.html { redirect_to resquest_criminal_path(@resquest_criminal), notice: 'Question was successfully destroyed.' }
     end
   end
 
@@ -73,9 +75,12 @@ class QuestionsController < ApplicationController
     def set_question
       @question = Question.find(params[:id])
     end
-
+  
+    def set_resquest_criminal
+      @resquest_criminal = ResquestCriminal.find(params[:resquest_criminal_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:resquest_type, :description, :default)
+      params.require(:question).permit(:resquest_type, :description, :default, :resquest_criminal_id)
     end
 end

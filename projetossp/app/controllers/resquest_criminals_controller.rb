@@ -12,6 +12,7 @@ class ResquestCriminalsController < ApplicationController
   # GET /resquest_criminals/1.json
   def show
     authorize :resquest_criminal, :index?
+    @questions = @resquest_criminal.questions
   end
 
   # GET /resquest_criminals/new
@@ -34,7 +35,11 @@ class ResquestCriminalsController < ApplicationController
     @resquest_criminal.district_send = District.find params[:resquest_criminal][:district_send]
     @resquest_criminal.person_id= params[:resquest_criminal][:person_id]
     @resquest_criminal.resquest_type= params[:resquest_criminal][:resquest_type]
-
+    
+    @resquest_criminal.questions << Question.where(resquest_type: @resquest_criminal.resquest_type.to_i, default: true)
+    puts '---------------------------'
+    puts @resquest_criminal.resquest_type
+    puts '==========================='
     # Nessa linha a requisição atual é setada com o ID do usuário atual
     @resquest_criminal.user_id = current_user.id
     @resquest_criminal.district_resquest = current_user.district

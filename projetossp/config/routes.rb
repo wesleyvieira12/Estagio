@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  resources :resquest_types
   resources :image_reports
   resources :question_resquest_criminals
-  resources :questions
+  #resources :questions
 
   # Requisição e laudo
   resources :resquest_criminals do 
     resources :reports
+    resources :questions
   end
 
   get 'reports/all', to: 'reports#general', as: :reports

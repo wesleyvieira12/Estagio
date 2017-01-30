@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Tipo:</strong>
-  <%= @question.resquest_type %>
-</p>
-
-<p>
-  <strong>Descrição:</strong>
-  <%= @question.description %>
-</p>
-
-<p>
-  <strong>Padrão:</strong>
-  <%= @question.default %>
-</p>
-
-<%= link_to 'Editar', edit_question_path(@question), class: 'ui button' %> 
-<%= link_to 'Voltar', questions_path, class: 'ui button' %>
+<div class='ui padded center aligned teal  segment show'>
+  <p>
+    <strong>Tipo:</strong>
+    <%= @question.resquest_type %>
+  </p>
+  
+  <p>
+    <strong>Descrição:</strong>
+    <%= @question.description %>
+  </p>
+  
+  <p>
+    <strong>Padrão:</strong>
+    <%= @question.default %>
+  </p>
+  
+  <%= link_to 'Editar', edit_resquest_criminal_question_path(@resquest_criminal,@question), class: 'ui button' %> 
+  <%= link_to 'Voltar', resquest_criminal_path(@resquest_criminal), class: 'ui button' %>
+</div>

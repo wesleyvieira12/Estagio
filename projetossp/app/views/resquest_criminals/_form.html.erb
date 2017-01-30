@@ -26,7 +26,7 @@
   <div class="field">
     <%= f.label :resquest_type %><br>
     <%# f.select(:type, ResquestCriminal.types.keys, {}) %>
-    <%= f.select :resquest_type, ResquestCriminal.resquest_types.keys, {}, class: 'ui dropdown'%>
+    <%= f.collection_select(:resquest_type_id, ResquestType.all, :id, :name, {:prompt=>false}, {:class=>'ui search dropdown'}) %>
   </div>
   <div class="field">
     <%= f.label :person_id %><br>

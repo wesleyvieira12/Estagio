@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   resources :image_reports
-  resources :reports
   resources :question_resquest_criminals
   resources :questions
-  resources :resquest_criminals
+  # Requisição e laudo
+  resources :resquest_criminals do 
+    resources :reports
+  end
+  get 'reports/all', to: 'reports#general', as: :reports
   resources :districts
   resources :group_permissions
   resources :user_permissions
@@ -12,13 +15,9 @@ Rails.application.routes.draw do
   resources :permissions
   get 'auditor/index'
   get 'auditor/show/:id', to: 'auditor#show', as: :show_auditor
-
   get 'images_for_report/index'
-
   get 'users/change_approved/:id', to: 'users#change_approved', as: :change_approved
-  
   resources :people
-  
   devise_for :users
 
   scope "/administrador" do

@@ -1,11 +1,18 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
 
+  def general
+    authorize :report, :general?
+    @reports = Report.all
+  end
   # GET /reports
   # GET /reports.json
   def index
     authorize :report, :index?
     @reports = Report.all
+    
+    # status: {aberto: 0, em_andamento:1, finalizado: 2} 
+    @resquest_criminals = ResquestCriminal.where resquest_type: 0, status: 0, district_send: current_user.district
   end
 
   # GET /reports/1

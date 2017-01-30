@@ -47,6 +47,7 @@ permission_show = Permission.create! name: 'show', description: 'método show do
 permission_new = Permission.create! name: 'new', description: 'método new do controlador'
 permission_update = Permission.create! name: 'update', description: 'método update do controlador'
 permission_change_approved = Permission.create! name: 'change_approved', description: 'método update do controlador user'
+permission_general = Permission.create! name: 'general', description: 'método update do controlador Report'
 
 # Criando grupo de usuário
 puts 'Criando grupo de usuário'
@@ -161,6 +162,7 @@ GroupPermission.create! user_group: user_group_administrador_level_0, segment: s
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_report, permission: permission_show
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_report, permission: permission_new
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_report, permission: permission_update
+GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_report, permission: permission_general
 
 # Módulo ResquestCriminal
 GroupPermission.create! user_group: user_group_administrador_level_0, segment: segment_resquest_criminal, permission: permission_create
@@ -180,7 +182,12 @@ GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_
 # Módulo Report
 GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_index
 GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_show
-
+# Módulo ResquestCriminal
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_create
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_index
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_show
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_new
+GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_update
 
 
 # Permissão de grupo
@@ -193,8 +200,15 @@ GroupPermission.create! user_group: user_group_delegado_level_0, segment: segmen
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_new
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_person, permission: permission_update
 # Módulo Report
-GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_index
-GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_show
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_report, permission: permission_index
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_report, permission: permission_show
+# Módulo ResquestCriminal
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_create
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_destroy
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_index
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_show
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_new
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_update
 
 # Permissão de grupo
 # Périto
@@ -211,6 +225,13 @@ GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_
 GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_show
 GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_new
 GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_update
+# Módulo ResquestCriminal
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_create
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_destroy
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_index
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_show
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_new
+GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_update
 
 # Adicionando usuário a um grupo
 puts 'Adicionando usuário a um grupo'
@@ -251,7 +272,7 @@ user_agente.district = district2
 user_agente.save
 user_delegado.district = district2
 user_delegado.save
-user_perito.district = district2
+user_perito.district = district1
 user_perito.save
 
 # Adicionando permissão ao login

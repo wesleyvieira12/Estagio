@@ -1,6 +1,7 @@
 class ResquestCriminal < ActiveRecord::Base
   
   enum resquest_type: [ :cadaverico, :arma, :corpo_de_delito ]
+  enum status: {aberto: 0, em_andamento:1, finalizado: 2} 
   
   # Injeção de funções de auditória
   audited

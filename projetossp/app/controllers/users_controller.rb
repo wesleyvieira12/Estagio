@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   # GET /users
   # GET /users.json
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
     authorize :user, :create?
 
     @user = User.new(user_params)
+
     #Pegando hora atual do registro
     @user.registration_date = Time.now
 
@@ -49,6 +51,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     authorize :user, :update?
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: t(".notice") }

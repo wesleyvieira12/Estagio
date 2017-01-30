@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     authorize :user, :create?
+
     @user = User.new(user_params)
     #Pegando hora atual do registro
     @user.registration_date = Time.now

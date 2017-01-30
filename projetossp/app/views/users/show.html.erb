@@ -2,10 +2,16 @@
 	<div class="ui items">
 
 	<div class="item">
-    
-    <div class="ui small image">
-      <img src="/Imagens/avatar.png">
-    </div>
+
+    <% if @user.photo? %>    
+      <div class="ui small image">
+          <%= image_tag(@user.photo_url) %>
+      </div>
+    <% else %>
+      <div class="ui small image">
+        <img src="/Images/avatar.png">
+      </div>
+    <% end %>
 
     <div class="content">
       

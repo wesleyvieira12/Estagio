@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:district_id])
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:registration_date])
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:user_group_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:photo])
   end
   
 end

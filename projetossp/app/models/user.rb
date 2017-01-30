@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  # Usuário recebendo montagem de uploader
+  mount_uploader :photo, PhotoUploader
+
   # Injeção de funções de auditória
   audited
   is_impressionable

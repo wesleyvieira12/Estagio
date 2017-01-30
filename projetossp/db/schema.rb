@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130014919) do
 
+ActiveRecord::Schema.define(version: 20170130014919) do
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
     t.string   "auditable_type"
@@ -209,6 +209,7 @@ ActiveRecord::Schema.define(version: 20170130014919) do
     t.datetime "date_registration"
     t.boolean  "approved",               default: false, null: false
     t.string   "name"
+    t.string   "photo"
   end
 
   add_index "users", ["approved"], name: "index_users_on_approved"

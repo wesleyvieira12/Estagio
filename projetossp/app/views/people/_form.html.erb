@@ -22,7 +22,6 @@
         <div class="four wide field">
           <%= f.label :photo %><br>
           <%= image_tag(@person.photo_url(:thumb)) if @person.photo? %>
-          <%# image_tag(@person.photo_url(:thumb) %>
           <%= f.file_field :photo %>
           <%= f.hidden_field :photo_cache %>
         </div>

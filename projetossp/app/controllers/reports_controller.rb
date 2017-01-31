@@ -28,8 +28,10 @@ class ReportsController < ApplicationController
     authorize :report, :new?
     @report = Report.new
     @report.resquest_criminal = @resquest_criminal
-    puts '---------------------'
-    puts @resquest_criminal
+    # Construído answer dentro do report
+    @resquest_criminal.questions.each do |question|
+      @report.answers.build question_id: question.id
+    end
   end
 
   # GET /reports/1/edit
@@ -43,11 +45,10 @@ class ReportsController < ApplicationController
     authorize :report, :create?
     @report = Report.new(report_params)
     @report.user_id = current_user.id
-
+    @report.resquest_criminal = @resquest_criminal
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
-        format.json { render :show, status: :created, location: @report }
+        format.html { redirect_to [@resquest_criminal,@report], notice: 'Report was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @report.errors, status: :unprocessable_entity }
@@ -61,11 +62,9 @@ class ReportsController < ApplicationController
     authorize :report, :update?
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
-        format.json { render :show, status: :ok, location: @report }
+        format.html { redirect_to [@resquest_criminal,@report], notice: 'Report was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -93,6 +92,8 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:resquest_criminal_id, :user_id, :image_reports_attributes => [:id, :avatar, :description, :_destroy])
+      params.require(:report).permit(:resquest_criminal_id, :user_id, 
+                    :image_reports_attributes => [:id, :avatar, :description, :_destroy], 
+                    answers_attributes: [:id, :report_id, :question_id, :description])
     end
 end

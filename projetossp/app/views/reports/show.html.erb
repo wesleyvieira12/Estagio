@@ -1,14 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="ui teal segment">
+  <p>
+    <strong>Código Requisição:</strong>
+    <%= @report.resquest_criminal.id %>
+  </p>
+  
+  <p>
+    <strong>Nome do agente emissor</strong>
+    <%= @report.resquest_criminal.user.name %>
+  </p>
+  <p>
+    <strong>Tipo de requisição</strong>
+    <%= @report.resquest_criminal.resquest_type.name %>
+  </p>
+  <p>
+    <strong>Nome do perito</strong>
+    <%= @report.user.name %>
+  </p>
+  <h4 class="ui horizontal divider header">
+    <i class="bar chart icon"></i>
+    Questionário
+  </h4>
+  <% @report.answers.each do |answer| %>
+    <p>
+      <%= answer.question.description %>
+    </p>
+    <p>
+      <%= (answer.description == '') ? 'Sem resposta até o momento' : answer.description %>
+    </p>
+  <% end %>
+  <%= link_to 'Editar', edit_resquest_criminal_report_path(@resquest_criminal,@report), class: 'ui tiny blue basic button' %> 
+  <%= link_to 'Voltar', reports_path, class: 'ui tiny blue basic button' %>
 
-<p>
-  <strong>ID Resquest criminal:</strong>
-  <%= @report.resquest_criminal.id %>
-</p>
-
-<p>
-  <strong>Name User:</strong>
-  <%= @report.user.name %>
-</p>
-
-<%= link_to 'Edit', edit_report_path(@report), class: 'ui tiny blue basic button' %> |
-<%= link_to 'Back', reports_path, class: 'ui tiny blue basic button' %>
+</div>
+  

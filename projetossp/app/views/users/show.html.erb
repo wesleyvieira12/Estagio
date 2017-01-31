@@ -15,7 +15,7 @@
 
     <div class="content">
       
-      <div class="header">Name</div>
+      <div class="header">Nome</div>
       
       <div class="meta">
         <span class="price">
@@ -27,8 +27,12 @@
 	  	<p>
         <span class="stay">
         	
-			    <strong>Approved:</strong>
-			    <%= @user.approved %>
+			    <strong>Aprovado:</strong>
+			    <% if @user.approved %>
+            Sim
+          <% else %>
+            Não         
+          <% end %>
 	  		
         </span>
         </p>
@@ -44,5 +48,5 @@
 
   </div>
 
-	<%= link_to 'Back', users_path,  class: 'ui tiny blue basic button ' %>
+	<%= link_to 'Voltar', users_path,  class: 'ui tiny blue basic button ' %>
   </p>

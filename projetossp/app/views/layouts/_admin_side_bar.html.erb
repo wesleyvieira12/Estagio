@@ -11,6 +11,11 @@
   	Usuários 
   <% end %>
 
+  <%= link_to  people_path, class: "#{is_current_page?( people_path)} item" do %>
+  <i class="users icon"></i>
+    Pessoas 
+  <% end %>
+
   <%= link_to auditor_index_path, class: "#{is_current_page?(auditor_index_path)} item" do %>
   <i class="spy icon"></i>
   	Auditoria

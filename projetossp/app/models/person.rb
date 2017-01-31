@@ -1,5 +1,7 @@
 class Person < ActiveRecord::Base
     
+    # gender: 0 - Feminino / 1 - Masculino
+
     # Montador de imagem
     mount_uploader :photo, ImageUploader
     

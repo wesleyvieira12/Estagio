@@ -260,6 +260,7 @@ user_perito.user_group = user_group_perito_level_0
 user_perito.save
 
 puts 'Criando uma pessoa no sistema'
+# gender: 0 - Feminino / 1 - Masculino
 # Criando uma Pessoa para testar alguns módulos
 person = Person.create! name: 'Pessoa da Silva', rg: '12345678', cpf: '12345678', gender: 1, phone: '1827121218', cell_phone: '12710928108'
 person.save

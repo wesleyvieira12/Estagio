@@ -5,7 +5,7 @@
       <%= @person.name %>
     </h2>
     <strong>Gênero</strong>
-    <%= @person.gender %>
+    <%= (@person.gender == 0) ? 'Feminino' : 'Masculino' %>
   </p>
   
   <p>

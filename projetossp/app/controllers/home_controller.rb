@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def index
   	@users = User.last(10)
   	@reports = Report.last(10)
-    @reports = Request_criminal.last(10)
+    @resquest_criminals = ResquestCriminal.last(10)
   end
 
   def about

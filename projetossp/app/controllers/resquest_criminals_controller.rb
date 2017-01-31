@@ -67,7 +67,9 @@ class ResquestCriminalsController < ApplicationController
   # DELETE /resquest_criminals/1.json
   def destroy
     authorize :resquest_criminal, :destroy?
-    Question.delete(@resquest_criminal)
+    @resquest_criminal.question_resquest_criminals.each do |resquest|
+      resquest.destroy
+    end
     @resquest_criminal.destroy
     respond_to do |format|
       format.html { redirect_to resquest_criminals_url, notice: 'Resquest criminal was successfully destroyed.' }

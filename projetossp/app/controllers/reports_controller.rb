@@ -1,8 +1,10 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_resquest_criminal, except: :general
+  
   def general
     authorize :report, :general?
+    @resquest_criminals = ResquestCriminal.where(district_send: current_user.district, status: 0)
     @reports = Report.all
   end
   # GET /reports
@@ -25,6 +27,9 @@ class ReportsController < ApplicationController
   def new
     authorize :report, :new?
     @report = Report.new
+    @report.resquest_criminal = @resquest_criminal
+    puts '---------------------'
+    puts @resquest_criminal
   end
 
   # GET /reports/1/edit
@@ -80,6 +85,10 @@ class ReportsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_report
       @report = Report.find(params[:id])
+    end
+    
+    def set_resquest_criminal
+      @resquest_criminal = ResquestCriminal.find(params[:resquest_criminal_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

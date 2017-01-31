@@ -1,9 +1,9 @@
 <div class='show'>
-  <div>
-      <div class="ui icon input">
-        <%= link_to  new_person_path, class: 'ui teal button' do %>
-          <i class='add icon'></i>Pessoa
-        <% end %>
+  <div class="ui vertical segment">
+    <div class="ui two column grid container">
+      <div class="left aligned column">
+        <div class="ui icon input">
+        
         <!--<div class="ui left icon action input">-->
         <!--  <i class="search icon"></i>-->
         <!--  <input placeholder="Pesquisar" type="text">-->
@@ -13,11 +13,22 @@
           <div class="ui left icon action input">
             <i class="search icon"></i>
             <%= f.search_field :name_cont, placeholder: 'Procurar' do %>
-              
             <% end %>
             <%= f.submit 'Procurar', class:'ui blue submit button' %>
           </div>
         <% end %>
+      </div>
+        
+        </div>
+      
+      <div class="right aligned column">
+        
+      <%= link_to  new_person_path, class: 'ui teal button' do %>
+          <i class='add icon'></i>Pessoa
+        <% end %>
+      </div>
+    </div>
+  </div>
   </div>
   
   <h1 class"ui header">Lista de pessoas</h1>

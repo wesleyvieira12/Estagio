@@ -17,6 +17,8 @@ body { padding-top: 46.7px; }
   display: none;
 }
 
+.ui.horizontal.divider.header{ margin-top:3em; }
+
 .masthead { border-radius: 0 !important; }
 
 .masthead.segment {

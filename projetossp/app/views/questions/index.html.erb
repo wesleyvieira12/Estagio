@@ -12,9 +12,9 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.resquest_type %></td>
+        <td><%= question.resquest_type.name %></td>
         <td><%= question.description %></td>
-        <td><%= question.default %></td>
+        <td><%= question.question_default %></td>
         <td><%= link_to 'Detalhes', question, class: 'ui tiny blue basic button' %></td>
         <td><%= link_to 'Editar', edit_question_path(question), class: 'ui tiny blue basic button' %></td>
         <td><%= link_to 'Excluir', question, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button' %></td>

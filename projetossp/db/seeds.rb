@@ -282,21 +282,27 @@ user_delegado.save
 user_perito.district = district1
 user_perito.save
 
+# Adicionando tipos de resquisição
+puts 'Adicionando tipos de requisição'
+resquest_type_cadaverico = ResquestType.create! name: 'Cadavérico', description: 'Laudo cadavérico'
+resquest_type_arma = ResquestType.create! name: 'Arma', description: 'Laudo arma'
+resquest_type_corpo_de_delito = ResquestType.create! name: 'Corpo de Delito', description: 'Laudo corpo_de_delito'
+
 # Adicionando perguntas padrões
 puts "Adicionando questões ao sistema"
-Question.create! description: 'Pergunta padrão cadaverico 1' , default: true, resquest_type: 0
-Question.create! description: 'Pergunta padrão cadaverico 2' , default: true, resquest_type: 0
-Question.create! description: 'Pergunta padrão cadaverico 3' , default: true, resquest_type: 0
-Question.create! description: 'Pergunta padrão cadaverico 4' , default: true, resquest_type: 0
-Question.create! description: 'Pergunta padrão cadaverico 5' , default: true, resquest_type: 0
-Question.create! description: 'Pergunta padrão arma 1' , default: true, resquest_type: 1
-Question.create! description: 'Pergunta padrão arma 2' , default: true, resquest_type: 1
-Question.create! description: 'Pergunta padrão arma 3' , default: true, resquest_type: 1
-Question.create! description: 'Pergunta padrão arma 4' , default: true, resquest_type: 1
-Question.create! description: 'Pergunta padrão arma 5' , default: true, resquest_type: 1
-Question.create! description: 'Pergunta padrão corpo_de_delito 1' , default: true, resquest_type: 2
-Question.create! description: 'Pergunta padrão corpo_de_delito 2' , default: true, resquest_type: 2
-Question.create! description: 'Pergunta padrão corpo_de_delito 3' , default: true, resquest_type: 2
-Question.create! description: 'Pergunta padrão corpo_de_delito 4' , default: true, resquest_type: 2
-Question.create! description: 'Pergunta padrão corpo_de_delito 5' , default: true, resquest_type: 2
+Question.create! description: 'Pergunta padrão cadaverico 1' , question_default: true, resquest_type: resquest_type_cadaverico
+Question.create! description: 'Pergunta padrão cadaverico 2' , question_default: true, resquest_type: resquest_type_cadaverico
+Question.create! description: 'Pergunta padrão cadaverico 3' , question_default: true, resquest_type: resquest_type_cadaverico
+Question.create! description: 'Pergunta padrão cadaverico 4' , question_default: true, resquest_type: resquest_type_cadaverico
+Question.create! description: 'Pergunta padrão cadaverico 5' , question_default: true, resquest_type: resquest_type_cadaverico
+Question.create! description: 'Pergunta padrão arma 1' , question_default: true, resquest_type: resquest_type_arma
+Question.create! description: 'Pergunta padrão arma 2' , question_default: true, resquest_type: resquest_type_arma
+Question.create! description: 'Pergunta padrão arma 3' , question_default: true, resquest_type: resquest_type_arma
+Question.create! description: 'Pergunta padrão arma 4' , question_default: true, resquest_type: resquest_type_arma
+Question.create! description: 'Pergunta padrão arma 5' , question_default: true, resquest_type: resquest_type_arma
+Question.create! description: 'Pergunta padrão corpo_de_delito 1' , question_default: true, resquest_type: resquest_type_corpo_de_delito
+Question.create! description: 'Pergunta padrão corpo_de_delito 2' , question_default: true, resquest_type: resquest_type_corpo_de_delito
+Question.create! description: 'Pergunta padrão corpo_de_delito 3' , question_default: true, resquest_type: resquest_type_corpo_de_delito
+Question.create! description: 'Pergunta padrão corpo_de_delito 4' , question_default: true, resquest_type: resquest_type_corpo_de_delito
+Question.create! description: 'Pergunta padrão corpo_de_delito 5' , question_default: true, resquest_type: resquest_type_corpo_de_delito
 

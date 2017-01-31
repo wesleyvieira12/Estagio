@@ -1,7 +1,7 @@
 <div class='ui padded center aligned teal  segment show'>
   <p>
     <strong>Tipo:</strong>
-    <%= @question.resquest_type %>
+    <%= @question.resquest_type.name %>
   </p>
   
   <p>
@@ -11,7 +11,7 @@
   
   <p>
     <strong>Padrão:</strong>
-    <%= @question.default %>
+    <%= @question.question_default %>
   </p>
   
   <%= link_to 'Editar', edit_resquest_criminal_question_path(@resquest_criminal,@question), class: 'ui button' %> 

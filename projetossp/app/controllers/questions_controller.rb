@@ -60,7 +60,7 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1.json
   def destroy
     authorize :question, :destroy?
-    unless @question.default
+    unless @question.question_default
       @question.destroy
     else
       @question.resquest_criminals.delete(@resquest_criminal)
@@ -81,6 +81,6 @@ class QuestionsController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:resquest_type, :description, :default, :resquest_criminal_id)
+      params.require(:question).permit(:resquest_type_id, :description, :question_default, :resquest_criminal_id)
     end
 end

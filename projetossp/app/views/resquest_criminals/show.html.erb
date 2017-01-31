@@ -16,7 +16,7 @@
   
   <p>
     <strong>Tipo de requisição:</strong>
-    <%= @resquest_criminal.resquest_type %>
+    <%= @resquest_criminal.resquest_type.name %>
   </p>
   
   <p>
@@ -46,7 +46,7 @@
     <% @questions.each do |question| %>
       <tr>
         <td><%= question.description %></td>
-        <td><%= (question.default) ? 'Sim': 'Não' %></td>
+        <td><%= (question.question_default) ? 'Sim': 'Não' %></td>
         <td><%= link_to 'Detalhes', resquest_criminal_question_path(@resquest_criminal,question), class: 'ui tiny blue basic button' %></td>
         <td><%= link_to 'Editar', edit_resquest_criminal_question_path(@resquest_criminal,question), class: 'ui tiny blue basic button' %></td>
         <td><%= link_to 'Excluir', resquest_criminal_question_path(@resquest_criminal,question), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button' %></td>

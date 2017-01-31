@@ -20,7 +20,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 gem 'audited', '~> 4.3'
 gem 'ransack'
-gem 'thin'
+#gem 'thin'
 # Bug dentro de params
 gem 'impressionist', '>=1.5.2'
 # group :production do 

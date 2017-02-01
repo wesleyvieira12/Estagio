@@ -6,21 +6,25 @@
   Inicio
   <% end %>
 
-  <%= link_to users_path, class: "#{is_current_page?(users_path)} item" do %>
-  <i class="user icon"></i>
-  	Usuários 
+  <% if policy(:user).index? %>
+    <%= link_to users_path, class: "#{is_current_page?(users_path)} item" do %>
+    <i class="user icon"></i>
+    	Usuários 
+    <% end %>
   <% end %>
-
+  
   <%= link_to  people_path, class: "#{is_current_page?( people_path)} item" do %>
   <i class="users icon"></i>
     Pessoas 
   <% end %>
-
-  <%= link_to auditor_index_path, class: "#{is_current_page?(auditor_index_path)} item" do %>
-  <i class="spy icon"></i>
-  	Auditoria
+  
+  <% if policy(:auditor).index? %>
+    <%= link_to auditor_index_path, class: "#{is_current_page?(auditor_index_path)} item" do %>
+    <i class="spy icon"></i>
+    	Auditoria
+    <% end %>
   <% end %>
-
+  
   <%= link_to reports_path, class: "#{is_current_page?(reports_path)} item" do %>
   <i class="doctor icon"></i>
   	Perícia
@@ -31,34 +35,46 @@
   	Requisições
   <% end %>
   
-  <%= link_to districts_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
-  <i class="edit icon"></i>
-  	Orgão
+  <% if policy(:district).index? %>
+    <%= link_to districts_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+    <i class="edit icon"></i>
+    	Orgão
+    <% end %>
   <% end %>
   
-  <%= link_to permissions_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
-  <i class="edit icon"></i>
-  	Permissão
+  <% if policy(:permission).index? %>
+    <%= link_to permissions_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+    <i class="edit icon"></i>
+    	Permissão
+    <% end %>
   <% end %>
   
-  <%= link_to group_permissions_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
-  <i class="edit icon"></i>
-  	Permissão de Grupo
+  <% if policy(:group_permission).index? %>
+    <%= link_to group_permissions_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+    <i class="edit icon"></i>
+    	Permissão de Grupo
+    <% end %>
   <% end %>
   
-  <%= link_to user_permissions_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
-  <i class="edit icon"></i>
-  	Permissão de usuário
+  <% if policy(:user_permission).index? %>
+    <%= link_to user_permissions_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+    <i class="edit icon"></i>
+    	Permissão de usuário
+    <% end %>
   <% end %>
   
-  <%= link_to resquest_types_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
-  <i class="edit icon"></i>
-  	Tipo de laudos
+  <% if policy(:resquest_type).index? %>
+    <%= link_to resquest_types_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+    <i class="edit icon"></i>
+    	Tipo de laudos
+    <% end %>
   <% end %>
   
-  <%= link_to segments_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
-  <i class="edit icon"></i>
-  	Módulo
+  <% if policy(:segment).index? %>
+    <%= link_to segments_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+    <i class="edit icon"></i>
+    	Módulo
+    <% end %>
   <% end %>
-
+  
 </div>

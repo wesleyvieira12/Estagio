@@ -100,6 +100,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.fetch(:user, {})
+      #params.fetch(:user, {})
+      params.require(:user).permit(:id,:username, :email, :salt, :encrypted_password,:name, :district_id,:user_group_id, :registration)
     end
 end

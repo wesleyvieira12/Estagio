@@ -7,6 +7,7 @@ puts "Criando usuários"
 user_administrador = User.create! name: 'Administrador', email: 'administrador@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 user_delegado = User.create! name: 'Delegado', email: 'delegado@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 user_perito = User.create! name: 'Perito', email: 'perito@email.com', password: '12345678', password_confirmation: '12345678', approved: true
+user_perito2 = User.create! name: 'Perito', email: 'perito2@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 user_agente = User.create! name: 'Agente', email: 'agente@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 puts '
     email: administrador@email.com 
@@ -15,6 +16,8 @@ puts '
     senha: 12345678 
     email: perito@email.com 
     senha: 12345678 
+    email: perito2@email.com
+    senha: 12345678
     email: agente@email.com 
     senha: 12345678 '
     
@@ -209,6 +212,7 @@ GroupPermission.create! user_group: user_group_delegado_level_0, segment: segmen
 # Módulo Report
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_report, permission: permission_index
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_report, permission: permission_show
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_report, permission: permission_general
 # Módulo ResquestCriminal
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_create
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_destroy
@@ -216,6 +220,13 @@ GroupPermission.create! user_group: user_group_delegado_level_0, segment: segmen
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_show
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_new
 GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_resquest_criminal, permission: permission_update
+# Módulo Question
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_question, permission: permission_create
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_question, permission: permission_destroy
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_question, permission: permission_index
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_question, permission: permission_show
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_question, permission: permission_new
+GroupPermission.create! user_group: user_group_delegado_level_0, segment: segment_question, permission: permission_update
 
 # Permissão de grupo
 # Périto
@@ -258,6 +269,9 @@ user_delegado.save
 # User Périto
 user_perito.user_group = user_group_perito_level_0
 user_perito.save
+user_perito2.user_group = user_group_perito_level_0
+user_perito2.save
+
 
 puts 'Criando uma pessoa no sistema'
 # gender: 0 - Feminino / 1 - Masculino
@@ -283,6 +297,8 @@ user_delegado.district = district2
 user_delegado.save
 user_perito.district = district1
 user_perito.save
+user_perito2.district = district1
+user_perito2.save
 
 # Adicionando tipos de resquisição
 puts 'Adicionando tipos de requisição'

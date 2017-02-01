@@ -5,7 +5,8 @@ class ReportsController < ApplicationController
   def general
     authorize :report, :general?
     @resquest_criminals = ResquestCriminal.where(district_send: current_user.district, status: 0)
-    @reports = Report.all
+    @reports = Report.where(user: current_user)
+    @general_reports = Report.where.not(user: current_user)
   end
   # GET /reports
   # GET /reports.json
@@ -46,6 +47,8 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.user_id = current_user.id
     @report.resquest_criminal = @resquest_criminal
+    @report.resquest_criminal.status = 1
+    @report.resquest_criminal.save
     respond_to do |format|
       if @report.save
         format.html { redirect_to [@resquest_criminal,@report], notice: 'Report was successfully created.' }

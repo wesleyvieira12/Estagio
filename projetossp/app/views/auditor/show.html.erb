@@ -1,4 +1,4 @@
-<h1 class"ui header">Lista de usuários</h1>
+<h1 class"ui header">Lista de modificações</h1>
 <table class='ui orange table'>
     <thead>
         <tr>
@@ -24,4 +24,29 @@
     </tbody>
 </table>
 
-<%= link_to 'Back', auditor_index_path, class: 'ui tiny blue basic button' %>
+<h1 class"ui header">Lista de visualizações</h1>
+<table class='ui orange table'>
+    <thead>
+        <tr>
+            <th>Controlador</th>
+            <th>Ação</th>
+            <th>Link anterior</th>
+            <th>Parâmetros</th>
+            <th>Endereço</th>
+            <th>Identificador de sessão</th>
+        </tr>
+    <thead>
+    <tbody>
+        <% @impressions.each do |impression| %>
+        <tr>
+            <td><%= impression.controller_name %></td>
+            <td><%= impression.action_name %></td>
+            <td><%= impression.referrer %></td>
+            <td><%= impression.params %></td>
+            <td><%= impression.ip_address %></td>
+            <td><%= impression.session_hash %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= link_to 'Voltar', auditor_index_path, class: 'ui tiny blue basic button' %>

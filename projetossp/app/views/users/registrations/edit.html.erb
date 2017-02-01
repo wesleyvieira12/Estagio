@@ -29,7 +29,7 @@
         
         <div class="field">  
             <%= f.label :user_group_id %><br />
-            <%= f.collection_select(:user_group_id, UserGroup.all, :id, :description) %>
+            <%= f.collection_select(:user_group_id, UserGroup.all, :id, :description,{},{class: 'ui dropdown'}) %>
         </div>
 
         <div class="field">  
@@ -39,7 +39,7 @@
 
         <div class="field">  
             <%= f.label :district_id %><br />
-            <%= f.collection_select(:district_id, District.all, :id, :name, {}, class: 'ui dropdown') %>
+            <%= f.collection_select(:district_id, District.all, :id, :name, {}, {class: 'ui dropdown'}) %>
         </div>
       <% end %>
   

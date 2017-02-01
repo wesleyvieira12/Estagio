@@ -1,3 +1,4 @@
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -10,27 +11,50 @@
       </ul>
     </div>
   <% end %>
+<div class="field">  
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, placeholder: "Digite seu nome" %>
+      </div>
 
-  <div class="field">
-      <div class='fields'>
-        <div class='twelve wide field'>
-          <%= f.label :email %><br>
-          <%= f.text_field :email %>
-        </div>
+      <div class="four wide field">
+          <%= f.label :photo %><br>
+          <%= f.file_field :photo %>
+          <%= f.hidden_field :photo_cache %>
       </div>
-    </div>
-    <div class='field'>
-      <div class='fields'>
-        <div class="four wide field">
-          <%= f.label :password %><br>
-          <%= f.text_field :password %>
-        </div>
-        <div class="four wide field">
-          <%= f.label :password_confirmation %><br>
-          <%= f.text_field :password_confirmation %>
-        </div>
+
+      <div class="field">  
+          <%= f.label :email %><br />
+          <%= f.email_field :email, placeholder: "Digite seu melhor E-mail" %>
       </div>
-    </div>
+      
+      <div class="field">  
+          <%= f.label :user_group_id %><br />
+          <%= f.collection_select(:user_group_id, UserGroup.all, :id, :description, {}, class: 'ui dropdown') %>
+      </div>
+
+      <div class="field">  
+          <%= f.label :registration %><br />
+          <%= f.text_field :registration, placeholder: "Digite sua matricula" %>
+      </div>
+
+      <div class="field">  
+          <%= f.label :district_id %><br />
+          <%= f.collection_select(:district_id, District.all, :id, :name,{}, class:'ui dropdown') %>
+          
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
 
   <div class="actions">
     <%= f.submit %>

@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>E-mail</th>
-      <th>Approved</th>
+      <th>Aprovado</th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -14,13 +14,18 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <div>
+        
           <td><%= user.email %></td>
-          <td><%= user.approved %></td>
-        </div>
-        <td><%= link_to 'Show', user, class: 'ui tiny blue basic button ' %></td>
-        <td><%= link_to 'Change Aprroved', change_approved_path(user), class: 'ui tiny blue basic button ' %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button ' %></td>
+          <% if user.approved %>
+          <td>Sim</td>
+          <td><%= link_to 'Desaprovar usuário', change_approved_path(user), class: 'ui tiny blue basic button ' %></td>
+          <% else %>
+          <td>Não</td>
+          <td><%= link_to 'Aprovar usuário', change_approved_path(user), class: 'ui tiny blue basic button ' %></td>
+          <% end %>
+        <td><%= link_to 'Editar', edit_user_path(user), class: 'ui tiny blue basic button ' %></td>
+        <td><%= link_to 'Ver', user, class: 'ui tiny blue basic button ' %></td>
+        <td><%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Você tem certeza?'}, class: 'ui tiny red basic button ' %></td>
       </tr>
     <% end %>
   </tbody>

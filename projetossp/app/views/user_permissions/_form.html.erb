@@ -15,15 +15,15 @@
   
     <div class="field">
       <%= f.label :user_id %><br>
-      <%= f.text_field :user_id %>
+      <%= f.collection_select(:user_id, User.all, :id, :name, {:prompt=>false}, {:class=>'ui dropdown'}) %>
     </div>
     <div class="field">
       <%= f.label :segment_id %><br>
-      <%= f.text_field :segment_id %>
+      <%= f.collection_select(:segment_id, Segment.all, :id, :name, {:prompt=>false}, {:class=>'ui dropdown'}) %>
     </div>
     <div class="field">
       <%= f.label :permission_id %><br>
-      <%= f.text_field :permission_id %>
+      <%= f.collection_select(:permission_id, Permission.all, :id, :name, {:prompt=>false}, {:class=>'ui dropdown'}) %>
     </div>
     <div class="actions">
       <%= f.submit class:'ui teal button' %>

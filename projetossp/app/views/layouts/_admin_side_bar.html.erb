@@ -30,5 +30,35 @@
   <i class="edit icon"></i>
   	Requisições
   <% end %>
+  
+  <%= link_to districts_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+  <i class="edit icon"></i>
+  	Orgão
+  <% end %>
+  
+  <%= link_to permissions_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+  <i class="edit icon"></i>
+  	Permissão
+  <% end %>
+  
+  <%= link_to group_permissions_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+  <i class="edit icon"></i>
+  	Permissão de Grupo
+  <% end %>
+  
+  <%= link_to user_permissions_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+  <i class="edit icon"></i>
+  	Permissão de usuário
+  <% end %>
+  
+  <%= link_to resquest_types_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+  <i class="edit icon"></i>
+  	Tipo de laudos
+  <% end %>
+  
+  <%= link_to segments_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+  <i class="edit icon"></i>
+  	Módulo
+  <% end %>
 
 </div>

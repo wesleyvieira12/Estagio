@@ -4,26 +4,31 @@ class ResquestTypesController < ApplicationController
   # GET /resquest_types
   # GET /resquest_types.json
   def index
+    authorize :resquest_type, :index?
     @resquest_types = ResquestType.all
   end
 
   # GET /resquest_types/1
   # GET /resquest_types/1.json
   def show
+    authorize :resquest_type, :show?
   end
 
   # GET /resquest_types/new
   def new
+    authorize :resquest_type, :new?
     @resquest_type = ResquestType.new
   end
 
   # GET /resquest_types/1/edit
   def edit
+    authorize :resquest_type, :edit?
   end
 
   # POST /resquest_types
   # POST /resquest_types.json
   def create
+    authorize :resquest_type, :create?
     @resquest_type = ResquestType.new(resquest_type_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class ResquestTypesController < ApplicationController
   # PATCH/PUT /resquest_types/1
   # PATCH/PUT /resquest_types/1.json
   def update
+    authorize :resquest_type, :update?
     respond_to do |format|
       if @resquest_type.update(resquest_type_params)
         format.html { redirect_to @resquest_type, notice: 'Resquest type was successfully updated.' }
@@ -54,6 +60,7 @@ class ResquestTypesController < ApplicationController
   # DELETE /resquest_types/1
   # DELETE /resquest_types/1.json
   def destroy
+    authorize :resquest_type, :destroy?
     @resquest_type.destroy
     respond_to do |format|
       format.html { redirect_to resquest_types_url, notice: 'Resquest type was successfully destroyed.' }

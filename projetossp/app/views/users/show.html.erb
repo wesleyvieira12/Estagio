@@ -18,23 +18,33 @@
       <div class="header">Nome</div>
       
       <div class="meta">
-        <span class="price">
-        
-	    		<strong>E-mail:</strong>
+        <p>
+          <strong>Nome:</strong>
+          <%= @user.name %>
+        </p>
+        <p>
+        	<strong>E-mail:</strong>
 	    		<%= @user.email %>
-	  		
-	  	</span>
-	  	<p>
-        <span class="stay">
-        	
+        </p>
+        <p>
+          <strong>Cargo:</strong>
+          <%= @user.user_group.description %>
+        </p>
+        <p>
+          <strong>Matricula:</strong>
+          <%= @user.registration %>
+        </p>
+        <p>
+          <strong>Distrito:</strong>
+          <%= @user.district.name %>
+        </p>
+	  	  <p>        	
 			    <strong>Aprovado:</strong>
 			    <% if @user.approved %>
             Sim
           <% else %>
             Não         
-          <% end %>
-	  		
-        </span>
+          <% end %>       
         </p>
       </div>
 

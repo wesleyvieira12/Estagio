@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :set_resquest_criminal, except: :general
+  before_action :set_resquest_criminal, except: [:general, :index]
   
   def general
     authorize :report, :general?
@@ -11,11 +11,23 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
+
+    # Essa página é exclusiva de agente
+
     authorize :report, :index?
-    @reports = Report.all
+
+    if params[:search] && !params[:search2]
+      @reports = Report.select("reports.id, reports.resquest_criminal_id, reports.user_id, users.name, resquest_criminals.person_id, resquest_criminals.district_resquest_id").joins(:resquest_criminal).joins(:user).where("users.name like ?","%#{params[:search]}%")
+      # Pesquisa pelo Nome do Perito
+    elsif !params[:search] && params[:search2]
+      @reports = Report.select("reports.id, reports.resquest_criminal_id, reports.user_id, users.name, resquest_criminals.person_id, resquest_criminals.district_resquest_id").joins(:resquest_criminal).joins(:user).where("resquest_criminals.person_name like ?", "%#{params[:search2]}%")
+      # Pesquisa pelo no da Pessoa da Requisição
+    else
+      @reports = Report.all
+    end
     
     # status: {aberto: 0, em_andamento:1, finalizado: 2} 
-    @resquest_criminals = ResquestCriminal.where resquest_type: 0, status: 0, district_send: current_user.district
+    @resquest_criminals = ResquestCriminal.all
   end
 
   # GET /reports/1

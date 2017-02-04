@@ -19,6 +19,9 @@
         <div class="eight wide column">
           <h3 class="ui header">SRLAR</h3>
           <p class="justify indent">
+            <% if current_user!=nil %>
+            <%= current_user.user_group_id %>
+            <% end %>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

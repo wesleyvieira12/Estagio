@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :question_resquest_criminals
   #resources :questions
 
+  get 'reports/index', to: 'reports#index', as: :reports_index
+
   # Requisição e laudo
   resources :resquest_criminals do 
     resources :reports

@@ -25,14 +25,27 @@
     <% end %>
   <% end %>
   
-  <%= link_to reports_path, class: "#{is_current_page?(reports_path)} item" do %>
-  <i class="doctor icon"></i>
-  	Perícia
-  <% end %> 
+  <% if UserGroup.find(current_user.user_group_id).function!='agente' %>
+  <%# Se o grupo de usuario for diferente de agente %>
+      <%= link_to reports_path, class: "#{is_current_page?(reports_path)} item" do %>
+      <i class="doctor icon"></i>
+      	Perícia
+      <% end %>
+
+  <% else %>
+  <%# Está é a visão correta de Agente %>
+      <%= link_to reports_index_path, class: "#{is_current_page?(reports_path)} item" do %>
+      <i class="doctor icon"></i>
+        Perícia
+      <% end %>
+
+  <% end %>
   
-  <%= link_to resquest_criminals_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
-  <i class="edit icon"></i>
-  	Requisições
+  <% if policy(:resquest_criminal).index? %>
+    <%= link_to resquest_criminals_path, class: "#{is_current_page?(resquest_criminals_path)} item" do %>
+    <i class="edit icon"></i>
+    	Requisições
+    <% end %>
   <% end %>
   
   <% if policy(:district).index? %>

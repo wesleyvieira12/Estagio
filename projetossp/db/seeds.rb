@@ -188,16 +188,9 @@ GroupPermission.create! user_group: user_group_administrador_level_0, segment: s
 # Módulo Person
 GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_person, permission: permission_index
 GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_person, permission: permission_show
-GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_person, permission: permission_new
 # Módulo Report
 GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_index
 GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_report, permission: permission_show
-# Módulo ResquestCriminal
-GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_create
-GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_index
-GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_show
-GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_new
-GroupPermission.create! user_group: user_group_agente_level_0, segment: segment_resquest_criminal, permission: permission_update
 
 
 # Permissão de grupo
@@ -323,4 +316,3 @@ Question.create! description: 'Pergunta padrão corpo_de_delito 2' , question_de
 Question.create! description: 'Pergunta padrão corpo_de_delito 3' , question_default: true, resquest_type: resquest_type_corpo_de_delito
 Question.create! description: 'Pergunta padrão corpo_de_delito 4' , question_default: true, resquest_type: resquest_type_corpo_de_delito
 Question.create! description: 'Pergunta padrão corpo_de_delito 5' , question_default: true, resquest_type: resquest_type_corpo_de_delito
-

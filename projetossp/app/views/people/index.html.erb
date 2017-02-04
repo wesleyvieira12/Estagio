@@ -21,12 +21,18 @@
         
         </div>
       
-      <div class="right aligned column">
-        
-      <%= link_to  new_person_path, class: 'ui teal button' do %>
-          <i class='add icon'></i>Pessoa
-        <% end %>
-      </div>
+      <% if UserGroup.find(current_user.user_group_id).function!='agente' %>
+      <%# Condicional para saber se é diferente de agente, sabe-se que o Agente não pode criar pessoas %>
+
+        <div class="right aligned column">
+          
+          <%= link_to  new_person_path, class: 'ui teal button' do %>
+            <i class='add icon'></i>Pessoa
+          <% end %>
+        </div>
+
+      <% end %>
+
     </div>
   </div>
   </div>

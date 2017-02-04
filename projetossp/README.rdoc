@@ -1,5 +1,5 @@
 Ruby version: 2.3
-Ruby on Rails version: 4.2
+Ruby on Rails version: 4.2.6
 
 dependências:
     sudo apt-get install imagemagick libmagickwand-dev

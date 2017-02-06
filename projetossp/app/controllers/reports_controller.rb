@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
 
     @general_reports = Report.where.not(user: current_user)
 
-    @general_reports = @general_reports.paginate(:page => params[:page], :per_page => 8)
+    @general_reports = @general_reports.paginate(:page => params[:page], :per_page => 7)
   end
   # GET /reports
   # GET /reports.json

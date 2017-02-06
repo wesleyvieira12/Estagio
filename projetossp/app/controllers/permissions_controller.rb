@@ -8,7 +8,7 @@ class PermissionsController < ApplicationController
     @q = Permission.ransack(params[:q])
     @permissions = @q.result
 
-    @permissions = @permissions.paginate(:page => params[:page], :per_page => 10)
+    @permissions = @permissions.paginate(:page => params[:page], :per_page => 7)
   end
 
   # GET /permissions/1

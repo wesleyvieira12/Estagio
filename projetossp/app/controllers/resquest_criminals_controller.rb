@@ -8,7 +8,7 @@ class ResquestCriminalsController < ApplicationController
     @q = ResquestCriminal.ransack(params[:q])
     @resquest_criminals = @q.result
 
-    @resquest_criminals = @resquest_criminals.paginate(:page => params[:page], :per_page => 10)
+    @resquest_criminals = @resquest_criminals.paginate(:page => params[:page], :per_page => 7)
   end
 
   # GET /resquest_criminals/1

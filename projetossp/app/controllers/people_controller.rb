@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
     @q = Person.ransack(params[:q])
     @people = @q.result
 
-    @people = @people.paginate(:page => params[:page], :per_page => 10)
+    @people = @people.paginate(:page => params[:page], :per_page => 7)
 
   end
 

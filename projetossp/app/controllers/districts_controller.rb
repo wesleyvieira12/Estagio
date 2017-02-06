@@ -8,7 +8,7 @@ class DistrictsController < ApplicationController
     @q = District.ransack(params[:q])
     @districts = @q.result
 
-    @districts = @districts.paginate(:page => params[:page], :per_page => 5)
+    @districts = @districts.paginate(:page => params[:page], :per_page => 7)
   end
 
   # GET /districts/1

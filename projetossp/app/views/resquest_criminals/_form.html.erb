@@ -33,6 +33,6 @@
     <%= f.collection_select(:person_id, Person.all, :id, :name, {:prompt=>true}, {:class=>'ui search dropdown'}) %>
   </div>
   <div class="actions">
-    <%= f.submit class: 'ui teal button' %>
+    <%= f.submit class: 'ui primary button' %>
   </div>
 <% end %>

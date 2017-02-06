@@ -6,6 +6,8 @@ class SegmentsController < ApplicationController
   def index
     authorize :segment, :index?
     @segments = Segment.all
+
+    @segments = @segments.paginate(:page => params[:page], :per_page => 7)
   end
 
   # GET /segments/1

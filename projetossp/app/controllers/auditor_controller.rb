@@ -1,7 +1,8 @@
 class AuditorController < ApplicationController
   def index
     authorize :auditor, :index?
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result
   end
   
   def show 

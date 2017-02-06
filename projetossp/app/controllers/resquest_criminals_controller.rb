@@ -5,7 +5,8 @@ class ResquestCriminalsController < ApplicationController
   # GET /resquest_criminals.json
   def index
     authorize :resquest_criminal, :index?
-    @resquest_criminals = ResquestCriminal.all
+    @q = ResquestCriminal.ransack(params[:q])
+    @resquest_criminals = @q.result
   end
 
   # GET /resquest_criminals/1

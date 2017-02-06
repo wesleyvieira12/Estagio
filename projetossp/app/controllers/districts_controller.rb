@@ -5,7 +5,8 @@ class DistrictsController < ApplicationController
   # GET /districts.json
   def index
     authorize :district, :index?
-    @districts = District.all
+    @q = District.ransack(params[:q])
+    @districts = @q.result
   end
 
   # GET /districts/1

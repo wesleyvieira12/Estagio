@@ -1,10 +1,12 @@
 
 <h1>Listando Perícias</h1>
 
+<br>
+
 <%= search_form_for @q, url: reports_index_path do |f| %>
           <div class="ui left icon action input">
             <i class="search icon"></i>
-            <%= f.search_field :user_name_cont, placeholder: 'Procurar' do %>
+            <%= f.search_field :user_name_cont, placeholder: 'Nome do Perito' do %>
             <% end %>
             <%= f.submit 'Procurar', class:'ui blue submit button' %>
           </div>
@@ -13,7 +15,7 @@
 <%= search_form_for @q, url: reports_index_path do |f| %>
           <div class="ui left icon action input">
             <i class="search icon"></i>
-            <%= f.search_field :resquest_criminal_person_name_cont, placeholder: 'Procurar' do %>
+            <%= f.search_field :resquest_criminal_person_name_cont, placeholder: 'Nome da Pessoa' do %>
             <% end %>
             <%= f.submit 'Procurar', class:'ui blue submit button' %>
           </div>

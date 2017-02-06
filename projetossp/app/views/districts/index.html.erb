@@ -1,7 +1,7 @@
 <h1 class"ui header">Lista de orgãos</h1>
 
 <%= search_form_for @q, url: districts_path do |f| %>
-          <div class="ui left icon action input">
+          <div class="ui icon action input">
             <i class="search icon"></i>
             <%= f.search_field :name_cont, placeholder: 'Nome do Perito' do %>
             <%# Pesquisa que passa pela tabela User para conseguir o nome do Perito %>

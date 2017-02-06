@@ -5,9 +5,9 @@
         <div class="ui icon input">
 
         <%= search_form_for @q do |f| %>
-          <div class="ui left icon action input">
+          <div class="ui icon action input">
             <i class="search icon"></i>
-            <%= f.search_field :name_cont, placeholder: 'Procurar' do %>
+            <%= f.search_field :name_cont, placeholder: 'Nome' do %>
             <% end %>
             <%= f.submit 'Procurar', class:'ui blue submit button' %>
           </div>
@@ -36,7 +36,7 @@
   <table class='ui orange table '>
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Nome</th>
         <th>Cpf</th>
         <th>Telefone</th>
         <th>Telefone celular</th>

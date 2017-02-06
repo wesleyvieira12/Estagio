@@ -2,7 +2,7 @@
 <h1 class"ui header">Lista de permissões</h1>
 
   <%= search_form_for @q, url: permissions_path do |f| %>
-          <div class="ui left icon action input">
+          <div class="ui icon action input">
             <i class="search icon"></i>
             <%= f.search_field :description_cont, placeholder: 'Procurar' do %>
             <% end %>

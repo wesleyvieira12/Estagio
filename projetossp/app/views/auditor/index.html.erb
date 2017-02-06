@@ -3,7 +3,7 @@
 <br>
 
 <%= search_form_for @q, url: auditor_index_path do |f| %>
-          <div class="ui left icon action input">
+          <div class="ui icon action input">
             <i class="search icon"></i>
             <%= f.search_field :name_cont, placeholder: 'Nome da Pessoa' do %>
             <%# Pesquisa que passa pela tabela ResquestCriminal (Person_id) e depois Person (Name) para concluir a pesquisa %>

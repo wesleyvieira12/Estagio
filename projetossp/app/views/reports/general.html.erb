@@ -53,7 +53,7 @@
     </tbody>
   </table>
 <% end %>
-<h1>Todos  laudos</h1>
+<h1> Outros laudos </h1>
 
 <table class="ui orange table">
   <thead>
@@ -79,3 +79,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @general_reports, :semantic => true, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+
+<br>
+<br>

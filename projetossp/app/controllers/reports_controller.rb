@@ -6,7 +6,10 @@ class ReportsController < ApplicationController
     authorize :report, :general?
     @resquest_criminals = ResquestCriminal.where(district_send: current_user.district, status: 0)
     @reports = Report.where(user: current_user)
+
     @general_reports = Report.where.not(user: current_user)
+
+    @general_reports = @general_reports.paginate(:page => params[:page], :per_page => 8)
   end
   # GET /reports
   # GET /reports.json

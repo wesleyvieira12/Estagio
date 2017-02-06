@@ -3,25 +3,29 @@
 
 <br>
 
-<%= search_form_for @q, url: reports_index_path do |f| %>
-          <div class="ui left icon action input">
+  <%= search_form_for @q, url: reports_index_path do |f| %>
+
+          <div class="ui icon action input">
             <i class="search icon"></i>
             <%= f.search_field :user_name_cont, placeholder: 'Nome do Perito' do %>
             <%# Pesquisa que passa pela tabela User para conseguir o nome do Perito %>
             <% end %>
             <%= f.submit 'Procurar', class:'ui blue submit button' %>
           </div>
-<% end %>
 
-<%= search_form_for @q, url: reports_index_path do |f| %>
-          <div class="ui left icon action input">
-            <i class="search icon"></i>
-            <%= f.search_field :resquest_criminal_person_name_cont, placeholder: 'Nome da Pessoa' do %>
-            <%# Pesquisa que passa pela tabela ResquestCriminal (Person_id) e depois Person (Name) para concluir a pesquisa %>
-            <% end %>
-            <%= f.submit 'Procurar', class:'ui blue submit button' %>
-          </div>
-<% end %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <%= search_form_for @q, url: reports_index_path do |f| %>
+            <div class="ui icon action input">
+              <i class="search icon"></i>
+              <%= f.search_field :resquest_criminal_person_name_cont, placeholder: 'Nome da Pessoa' do %>
+              <%# Pesquisa que passa pela tabela ResquestCriminal (Person_id) e depois Person (Name) para concluir a pesquisa %>
+              <% end %>
+              <%= f.submit 'Procurar', class:'ui blue submit button' %>
+            </div>
+  <% end %>
+
+  <% end %>
 
 <table class="ui blue table">
 
@@ -29,9 +33,10 @@
     <tr>
       <th>Resquisição ID</th>
       <th>Perícia ID</th>
-      <th>Perito </th>
-      <th>Name Person</th>
-      <th>Disctric Request</th>
+      <th>Nome do Perito</th>
+      <th>Nome da Pessoa</th>
+      <th>Órgão Expedidor</th>
+      <th>Órgão Receptor</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -59,6 +64,7 @@
         <td><%= report.user.name %></td>
         <td><%= report.resquest_criminal.person.name  %></td>
         <td><%= report.resquest_criminal.district_resquest.name %></td>
+        <td><%= report.resquest_criminal.district_send.name %></td>
         <td><%# link_to 'Detalhes', report, class: 'ui tiny blue basic button' %></td>
         <td><%# link_to 'Editar', edit_report_path(report), class: 'ui tiny blue basic button' %></td>
         <td><p><%# link_to 'Ver imagens', images_for_report_index_path(devic: report.id), class: 'ui tiny green basic button' %></p></td>

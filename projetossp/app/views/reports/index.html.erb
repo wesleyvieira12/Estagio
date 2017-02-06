@@ -7,6 +7,7 @@
           <div class="ui left icon action input">
             <i class="search icon"></i>
             <%= f.search_field :user_name_cont, placeholder: 'Nome do Perito' do %>
+            <%# Pesquisa que passa pela tabela User para conseguir o nome do Perito %>
             <% end %>
             <%= f.submit 'Procurar', class:'ui blue submit button' %>
           </div>
@@ -16,6 +17,7 @@
           <div class="ui left icon action input">
             <i class="search icon"></i>
             <%= f.search_field :resquest_criminal_person_name_cont, placeholder: 'Nome da Pessoa' do %>
+            <%# Pesquisa que passa pela tabela ResquestCriminal (Person_id) e depois Person (Name) para concluir a pesquisa %>
             <% end %>
             <%= f.submit 'Procurar', class:'ui blue submit button' %>
           </div>

@@ -34,7 +34,6 @@ class ResquestCriminalsController < ApplicationController
     
     # Nessa linha a requisição atual é setada com o ID do usuário atual
     @resquest_criminal.user_id = current_user.id
-    @resquest_criminal.person_name = Person.find(@resquest_criminal.person_id).name
     @resquest_criminal.district_resquest = current_user.district
     respond_to do |format|
       if @resquest_criminal.save

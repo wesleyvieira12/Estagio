@@ -6,8 +6,8 @@
 puts "Criando usuários"
 user_administrador = User.create! name: 'Administrador', email: 'administrador@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 user_delegado = User.create! name: 'Delegado', email: 'delegado@email.com', password: '12345678', password_confirmation: '12345678', approved: true
-user_perito = User.create! name: 'Perito', email: 'perito@email.com', password: '12345678', password_confirmation: '12345678', approved: true
-user_perito2 = User.create! name: 'Perito', email: 'perito2@email.com', password: '12345678', password_confirmation: '12345678', approved: true
+user_perito = User.create! name: 'Perito1', email: 'perito@email.com', password: '12345678', password_confirmation: '12345678', approved: true
+user_perito2 = User.create! name: 'Perito2', email: 'perito2@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 user_agente = User.create! name: 'Agente', email: 'agente@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 puts '
     email: administrador@email.com 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204193328) do
+ActiveRecord::Schema.define(version: 20170131015153) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "report_id"
@@ -171,7 +171,6 @@ ActiveRecord::Schema.define(version: 20170204193328) do
     t.datetime "updated_at",                       null: false
     t.integer  "status",               default: 0
     t.integer  "resquest_type_id"
-    t.string   "person_name"
   end
 
   add_index "resquest_criminals", ["person_id"], name: "index_resquest_criminals_on_person_id"

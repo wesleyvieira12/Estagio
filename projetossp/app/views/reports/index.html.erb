@@ -1,6 +1,24 @@
 
 <h1>Listando Perícias</h1>
 
+<%= search_form_for @q, url: reports_index_path do |f| %>
+          <div class="ui left icon action input">
+            <i class="search icon"></i>
+            <%= f.search_field :user_name_cont, placeholder: 'Procurar' do %>
+            <% end %>
+            <%= f.submit 'Procurar', class:'ui blue submit button' %>
+          </div>
+<% end %>
+
+<%= search_form_for @q, url: reports_index_path do |f| %>
+          <div class="ui left icon action input">
+            <i class="search icon"></i>
+            <%= f.search_field :resquest_criminal_person_name_cont, placeholder: 'Procurar' do %>
+            <% end %>
+            <%= f.submit 'Procurar', class:'ui blue submit button' %>
+          </div>
+<% end %>
+
 <table class="ui blue table">
   <thead>
     <tr>
@@ -12,36 +30,6 @@
       <th colspan="4"></th>
     </tr>
   </thead>
-
-  <%= form_tag(reports_index_path, :method => :get) do %>
-
-    <div class="ui left icon action input">
-
-      <i class="search icon"></i>
-
-      <%= text_field_tag 'search', nil, placeholder: 'Nome do Perito' %>
-
-      <%= submit_tag 'Procurar' ,class:'ui blue submit button' %>
-
-    </div>
-
-  <% end %>
-
-  &nbsp;&nbsp;&nbsp;&nbsp;
-
-  <%= form_tag(reports_index_path, :method => :get) do %>
-    
-    <div class="ui left icon action input">
-    
-      <i class="search icon"></i>
-
-      <%= text_field_tag 'search2', nil, placeholder: 'Nome da Pessoa' %>
-
-      <%= submit_tag 'Procurar' ,class:'ui blue submit button' %>
-
-    </div>
-
-  <% end %>
 
   <tbody>
     <% @reports.each do |report| %>

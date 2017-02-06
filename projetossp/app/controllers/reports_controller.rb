@@ -16,15 +16,8 @@ class ReportsController < ApplicationController
 
     authorize :report, :index?
 
-    if params[:search] && !params[:search2]
-      @reports = Report.select("reports.id, reports.resquest_criminal_id, reports.user_id, users.name, resquest_criminals.person_id, resquest_criminals.district_resquest_id").joins(:resquest_criminal).joins(:user).where("users.name like ?","%#{params[:search]}%")
-      # Pesquisa pelo Nome do Perito
-    elsif !params[:search] && params[:search2]
-      @reports = Report.select("reports.id, reports.resquest_criminal_id, reports.user_id, users.name, resquest_criminals.person_id, resquest_criminals.district_resquest_id").joins(:resquest_criminal).joins(:user).where("resquest_criminals.person_name like ?", "%#{params[:search2]}%")
-      # Pesquisa pelo no da Pessoa da Requisição
-    else
-      @reports = Report.all
-    end
+    @q = Report.ransack(params[:q])
+    @reports = @q.result
     
     # status: {aberto: 0, em_andamento:1, finalizado: 2} 
     @resquest_criminals = ResquestCriminal.all

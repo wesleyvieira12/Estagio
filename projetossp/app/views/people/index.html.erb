@@ -21,7 +21,7 @@
         
         </div>
       
-      <% if UserGroup.find(current_user.user_group_id).function!='agente' %>
+      <% if policy(:person).create? %>
       <%# Condicional para saber se é diferente de agente, sabe-se que o Agente não pode criar pessoas %>
 
         <div class="right aligned column">
@@ -67,8 +67,19 @@
           <td><%= person.phone %></td>
           <td><%= person.cell_phone %></td>
           <td><%= link_to 'Ver', person, class: 'ui tiny blue basic button' %></td>
-          <td><%= link_to 'Editar', edit_person_path(person), class: 'ui tiny blue basic button' %></td>
+
+          <% if policy(:person).edit? %>
+
+            <td><%= link_to 'Editar', edit_person_path(person), class: 'ui tiny blue basic button' %></td>
+
+          <% end %>
+
+          <% if policy(:person).destroy? %>
+
           <td><%= link_to 'Excluir', person, method: :delete, class: 'ui tiny basic red button', data: { confirm: 'Você tem certeza?' } %></td>
+
+          <% end %>
+
         </tr>
       <% end %>
     </tbody>

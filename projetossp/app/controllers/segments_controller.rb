@@ -5,7 +5,10 @@ class SegmentsController < ApplicationController
   # GET /segments.json
   def index
     authorize :segment, :index?
-    @segments = Segment.all
+    #@segments = Segment.all
+
+    @q = Segment.ransack(params[:q])
+    @segments = @q.result
 
     @segments = @segments.paginate(:page => params[:page], :per_page => 7)
   end

@@ -61,6 +61,7 @@
       <th>Pessoa</th>
       <th>Agente Expedidor </th>
       <th>Orgão Expedidor</th>
+      <th>Orgão Receptor</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -71,6 +72,7 @@
         <td><%= report.resquest_criminal.person.name %></td>
         <td><%= report.resquest_criminal.user.name %></td>
         <td><%= report.resquest_criminal.district_resquest.name %></td>
+        <td><%= report.resquest_criminal.district_send.name %></td>
         <td><%# link_to 'Editar', edit_resquest_criminal_report_path(report.resquest_criminal,report), class: 'ui tiny blue basic button' %></td>
         <td><%= link_to 'Detalhes', resquest_criminal_report_path(report.resquest_criminal,report), class: 'ui tiny blue basic button' %></td>
       </tr>

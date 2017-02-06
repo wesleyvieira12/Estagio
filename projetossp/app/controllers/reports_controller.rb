@@ -19,8 +19,6 @@ class ReportsController < ApplicationController
     @q = Report.ransack(params[:q])
     @reports = @q.result
     
-    # status: {aberto: 0, em_andamento:1, finalizado: 2} 
-    @resquest_criminals = ResquestCriminal.all
   end
 
   # GET /reports/1

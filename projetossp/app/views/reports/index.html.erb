@@ -36,7 +36,12 @@
   </thead>
 
   <tbody>
+
     <% @reports.each do |report| %>
+
+      <%# Verificação do Distrito da Perícia e do Usuário (Agente) %>
+      <% if current_user.district_id == report.resquest_criminal.district_send.id %>
+
       <tr>
         <td><%= report.resquest_criminal.id %></td>
         <td><%= report.id %></td>
@@ -48,6 +53,9 @@
         <td><p><%# link_to 'Ver imagens', images_for_report_index_path(devic: report.id), class: 'ui tiny green basic button' %></p></td>
         <td><%# link_to 'Excluir', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui tiny red basic button' %></td>
       </tr>
+
+      <% end %>
+
     <% end %>
   </tbody>
 </table>

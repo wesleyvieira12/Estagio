@@ -5,7 +5,8 @@ class PermissionsController < ApplicationController
   # GET /permissions.json
   def index
     authorize :permission, :index?
-    @permissions = Permission.all
+    @q = Permission.ransack(params[:q])
+    @permissions = @q.result
   end
 
   # GET /permissions/1

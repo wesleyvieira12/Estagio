@@ -5,7 +5,8 @@ class GroupPermissionsController < ApplicationController
   # GET /group_permissions.json
   def index
     authorize :group_permission, :index?
-    @group_permissions = GroupPermission.all
+    @q = GroupPermission.ransack(params[:q])
+    @group_permissions = @q.result
   end
 
   # GET /group_permissions/1

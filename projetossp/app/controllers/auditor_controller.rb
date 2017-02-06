@@ -3,6 +3,8 @@ class AuditorController < ApplicationController
     authorize :auditor, :index?
     @q = User.ransack(params[:q])
     @users = @q.result
+
+    @users = @users.paginate(:page => params[:page], :per_page => 10)
   end
   
   def show 

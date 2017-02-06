@@ -32,6 +32,9 @@
   </tbody>
 </table>
 
+<%= will_paginate @permissions, :semantic => true, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+
+<br>
 <br>
 
 <%= link_to 'Nova permissão', new_permission_path, class: 'ui teal button' %>

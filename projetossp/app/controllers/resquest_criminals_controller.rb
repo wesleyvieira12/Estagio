@@ -7,6 +7,8 @@ class ResquestCriminalsController < ApplicationController
     authorize :resquest_criminal, :index?
     @q = ResquestCriminal.ransack(params[:q])
     @resquest_criminals = @q.result
+
+    @resquest_criminals = @resquest_criminals.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /resquest_criminals/1

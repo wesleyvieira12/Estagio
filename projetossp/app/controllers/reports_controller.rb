@@ -18,6 +18,8 @@ class ReportsController < ApplicationController
 
     @q = Report.ransack(params[:q])
     @reports = @q.result
+
+    @reports = @reports.paginate(:page => params[:page], :per_page => 10)
     
   end
 

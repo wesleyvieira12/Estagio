@@ -30,3 +30,5 @@
         <% end %>
     </tbody>
 </table>
+
+<%= will_paginate @users, :semantic => true, renderer: WillPaginateSemanticUi::ActionView::Renderer %>

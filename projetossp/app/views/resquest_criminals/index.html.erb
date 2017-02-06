@@ -38,6 +38,9 @@
   </tbody>
 </table>
 
+<%= will_paginate @resquest_criminals, :semantic => true, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+
+<br>
 <br>
 
 <%= link_to 'Nova requisição', new_resquest_criminal_path, class: 'ui teal button' %>

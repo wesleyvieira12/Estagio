@@ -3,12 +3,7 @@
     <div class="ui two column grid container">
       <div class="left aligned column">
         <div class="ui icon input">
-        
-        <!--<div class="ui left icon action input">-->
-        <!--  <i class="search icon"></i>-->
-        <!--  <input placeholder="Pesquisar" type="text">-->
-        <!--  <div class="ui blue submit button">Procurar</div>-->
-        <!--</div>-->
+
         <%= search_form_for @q do |f| %>
           <div class="ui left icon action input">
             <i class="search icon"></i>
@@ -84,6 +79,7 @@
       <% end %>
     </tbody>
   </table>
-  
-  <br>
+
+  <%= will_paginate @people, :semantic => true, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+
 </div>

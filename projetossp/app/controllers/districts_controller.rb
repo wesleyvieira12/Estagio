@@ -7,6 +7,8 @@ class DistrictsController < ApplicationController
     authorize :district, :index?
     @q = District.ransack(params[:q])
     @districts = @q.result
+
+    @districts = @districts.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /districts/1

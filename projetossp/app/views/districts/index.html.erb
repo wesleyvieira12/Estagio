@@ -42,6 +42,10 @@
     </tbody>
   </table>
 
+  <%= will_paginate @districts, :semantic => true, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+
+  <br>
+
 <br>
 
 <%= link_to 'Novo Orgão', new_district_path, class: 'ui teal button' %>

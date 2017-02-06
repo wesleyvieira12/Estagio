@@ -1,3 +1,6 @@
+
+<br>
+
 <h1 class"ui header">Lista de usuários</h1>
 
 <br>
@@ -5,7 +8,7 @@
 <%= search_form_for @q, url: auditor_index_path do |f| %>
           <div class="ui icon action input">
             <i class="search icon"></i>
-            <%= f.search_field :name_cont, placeholder: 'Nome da Pessoa' do %>
+            <%= f.search_field :name_cont, placeholder: 'Nome' do %>
             <%# Pesquisa que passa pela tabela ResquestCriminal (Person_id) e depois Person (Name) para concluir a pesquisa %>
             <% end %>
             <%= f.submit 'Procurar', class:'ui blue submit button' %>

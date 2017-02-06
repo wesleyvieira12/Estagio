@@ -5,8 +5,9 @@
 
 puts "Criando usuários"
 user_administrador = User.create! name: 'Administrador', email: 'administrador@email.com', password: '12345678', password_confirmation: '12345678', approved: true
-user_delegado = User.create! name: 'Delegado', email: 'delegado@email.com', password: '12345678', password_confirmation: '12345678', approved: true
-user_perito = User.create! name: 'Perito1', email: 'perito@email.com', password: '12345678', password_confirmation: '12345678', approved: true
+user_delegado = User.create! name: 'Delegado1', email: 'delegado1@email.com', password: '12345678', password_confirmation: '12345678', approved: true
+user_delegado2 = User.create! name: 'Delegado2', email: 'delegado2@email.com', password: '12345678', password_confirmation: '12345678', approved: true
+user_perito = User.create! name: 'Perito1', email: 'perito1@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 user_perito2 = User.create! name: 'Perito2', email: 'perito2@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 user_agente = User.create! name: 'Agente', email: 'agente@email.com', password: '12345678', password_confirmation: '12345678', approved: true
 puts '
@@ -258,6 +259,8 @@ user_agente.save
 # User Delegado
 user_delegado.user_group = user_group_delegado_level_0
 user_delegado.save
+user_delegado2.user_group = user_group_delegado_level_0
+user_delegado2.save
 
 # User Périto
 user_perito.user_group = user_group_perito_level_0
@@ -272,8 +275,14 @@ puts 'Criando pessoas no sistema'
 person1 = Person.create! name: 'Pessoa da Silva', rg: '12345678', cpf: '12345678', gender: 1, phone: '1827121218', cell_phone: '12710928108'
 person1.save
 
-person2 = Person.create! name: 'Pessoa Moura Leal', rg: '11342898', cpf: '11281577678', gender: 1, phone: '18299922218', cell_phone: '127105536628'
+person2 = Person.create! name: 'Joaquim Moura Leal', rg: '11342898', cpf: '11281577678', gender: 1, phone: '18299922218', cell_phone: '127105536628'
 person2.save
+
+person3 = Person.create! name: 'Mário Andrade Lima', rg: '113761298', cpf: '188281577678', gender: 1, phone: '189999211218', cell_phone: '1099036628'
+person3.save
+
+person4 = Person.create! name: 'Vívia Sousa Araújo', rg: '1137619988', cpf: '1000181127678', gender: 1, phone: '9992811218', cell_phone: '1099655628'
+person4.save
 
 puts 'Criando um órgão no sistema'
 
@@ -284,6 +293,9 @@ district1.save
 district2 = District.create! name: 'Departamento de Polícia Civil de Picos', public_place: 'Logradouro', city: 'Picos', state: 'Piauí', cep: '64620-000', phone: '8914472182', email: 'policiacivil@email.com', neighborhood: 'Bairro de Picos'
 district2.save
 
+district3 = District.create! name: 'Departamento de Polícia Civil de Teresina', public_place: 'Logradouro', city: 'Picos', state: 'Piauí', cep: '64620-000', phone: '8914472182', email: 'policiacivil@email.com', neighborhood: 'Bairro de Picos'
+district3.save
+
 # Adicionando endereço aos agentes
 user_administrador.district = district2
 user_administrador.save
@@ -291,6 +303,8 @@ user_agente.district = district2
 user_agente.save
 user_delegado.district = district2
 user_delegado.save
+user_delegado2.district = district3
+user_delegado2.save
 user_perito.district = district1
 user_perito.save
 user_perito2.district = district1

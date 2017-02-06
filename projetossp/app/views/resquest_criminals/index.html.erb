@@ -1,3 +1,6 @@
+
+<br>
+
 <h1 class"ui header">Lista de requisições</h1>
 
   <%= search_form_for @q, url: resquest_criminals_path do |f| %>
@@ -10,7 +13,7 @@
           </div>
   <% end %>
 
-  <table class='ui orange table '>
+  <table class='ui blue table '>
   <thead>
     <tr>
       <th>Orgão requisitor</th>
@@ -43,4 +46,6 @@
 <br>
 <br>
 
-<%= link_to 'Nova requisição', new_resquest_criminal_path, class: 'ui teal button' %>
+<%= link_to 'Nova requisição', new_resquest_criminal_path, class: 'ui primary button' %>
+
+<br><br>

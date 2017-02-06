@@ -237,13 +237,13 @@ GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_
 GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_new
 GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_update
 GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_report, permission: permission_general
-# Módulo ResquestCriminal
-GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_create
-GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_destroy
-GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_index
-GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_show
-GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_new
-GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_update
+# Perito não necessita do Módulo ResquestCriminal
+#GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_create
+#GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_destroy
+#GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_index
+#GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_show
+#GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_new
+#GroupPermission.create! user_group: user_group_perito_level_0, segment: segment_resquest_criminal, permission: permission_update
 
 # Adicionando usuário a um grupo
 puts 'Adicionando usuário a um grupo'

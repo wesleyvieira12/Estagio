@@ -50,42 +50,42 @@
   
   <% if policy(:district).index? %>
     <%= link_to districts_path, class: "#{is_current_page?(districts_path)} item" do %>
-    <i class="edit icon"></i>
+    <i class="sitemap icon"></i>
     	Orgão
     <% end %>
   <% end %>
   
   <% if policy(:permission).index? %>
     <%= link_to permissions_path, class: "#{is_current_page?(permissions_path)} item" do %>
-    <i class="edit icon"></i>
+    <i class="male icon"></i>
     	Permissão
     <% end %>
   <% end %>
   
   <% if policy(:group_permission).index? %>
     <%= link_to group_permissions_path, class: "#{is_current_page?(group_permissions_path)} item" do %>
-    <i class="edit icon"></i>
+    <i class="users icon"></i>
     	Permissão de Grupo
     <% end %>
   <% end %>
   
   <% if policy(:user_permission).index? %>
     <%= link_to user_permissions_path, class: "#{is_current_page?(user_permissions_path)} item" do %>
-    <i class="edit icon"></i>
+    <i class="unhide icon"></i>
     	Permissão de usuário
     <% end %>
   <% end %>
   
   <% if policy(:resquest_type).index? %>
     <%= link_to resquest_types_path, class: "#{is_current_page?(resquest_types_path)} item" do %>
-    <i class="edit icon"></i>
+    <i class="copy icon"></i>
     	Tipo de laudos
     <% end %>
   <% end %>
   
   <% if policy(:segment).index? %>
     <%= link_to segments_path, class: "#{is_current_page?(segments_path)} item" do %>
-    <i class="edit icon"></i>
+    <i class="cube icon"></i>
     	Módulo
     <% end %>
   <% end %>

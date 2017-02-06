@@ -266,11 +266,14 @@ user_perito2.user_group = user_group_perito_level_0
 user_perito2.save
 
 
-puts 'Criando uma pessoa no sistema'
+puts 'Criando pessoas no sistema'
 # gender: 0 - Feminino / 1 - Masculino
 # Criando uma Pessoa para testar alguns módulos
-person = Person.create! name: 'Pessoa da Silva', rg: '12345678', cpf: '12345678', gender: 1, phone: '1827121218', cell_phone: '12710928108'
-person.save
+person1 = Person.create! name: 'Pessoa da Silva', rg: '12345678', cpf: '12345678', gender: 1, phone: '1827121218', cell_phone: '12710928108'
+person1.save
+
+person2 = Person.create! name: 'Pessoa Moura Leal', rg: '11342898', cpf: '11281577678', gender: 1, phone: '18299922218', cell_phone: '127105536628'
+person2.save
 
 puts 'Criando um órgão no sistema'
 

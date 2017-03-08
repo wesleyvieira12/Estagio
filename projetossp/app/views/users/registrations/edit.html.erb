@@ -1,3 +1,4 @@
+
 <div class="ui grid container">
   <div class="ten wide column">
     <h2><%= t(".title")%></h2>
@@ -14,7 +15,7 @@
         <%= image_tag(@user.photo_url) if @user.photo? %>  
       </div>
 
-      <div>
+      <div class="field">
         <%= f.label :photo %><br>
         <%= f.file_field :photo %>
         <%= f.hidden_field :photo_cache %>
@@ -49,7 +50,7 @@
 
       <div class="field">
         <%= f.label :password %> <i>(Deixe em branco se você não quer mudar isto!)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", value: "" %>
         <% if @minimum_password_length %>
           <br />
           <em><%= @minimum_password_length %> Mínimo de caracteres</em>
@@ -75,6 +76,37 @@
     <%# button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui button red' %></p>
 
     <%# link_to "Back", :back, class: 'ui button blue' %>
+    <% if !policy(:user).edit? %>
+    <h2>Mais Dados</h2>
+<div class="ui inverted segment">
+          <div class="ui inverted relaxed divided list">
+            <div class="item">
+              <div class="content">
+                <div class="header">E-mail</div>
+                <%= @user.email %>
+              </div>
+            </div>      
+            <div class="item">
+              <div class="content">
+                <div class="header">Cargo</div>
+                <%= @user.user_group.description %>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">Matricula</div>
+                <%= @user.registration %>
+              </div>
+            </div> 
+            <div class="item">
+              <div class="content">
+                <div class="header">Distrito</div>
+                <%= @user.district.name %>
+              </div>
+            </div>       
+          </div>
+        </div>        
+<% end %>
     </div>
   </div>
 </div>
